@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\pingerok\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|c:\\users\\user\\source\\repos\\pingerok\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|C:\\Users\\User\\source\\repos\\pingerok\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|c:\\users\\user\\source\\repos\\pingerok\\addressform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:addressform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|c:\\users\\user\\source\\repos\\pingerok\\addipform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:addipform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|C:\\Users\\User\\source\\repos\\pingerok\\addipform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:addipform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|c:\\users\\user\\source\\repos\\pingerok\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|c:\\users\\user\\source\\repos\\pingerok\\addipform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD9FB871-A5A2-4EEA-8EAF-13B74CFA8D63}|pingerok.csproj|solutionrelative:addipform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "addressForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\addressForm.cs",
+              "RelativeDocumentMoniker": "addressForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\addressForm.cs",
+              "RelativeToolTip": "addressForm.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAIA8wEMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T12:30:21.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAN8BAAAAAAAAAAAIwO4BAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T12:13:49.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T12:03:39.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddIpForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.cs",
+              "RelativeDocumentMoniker": "AddIpForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.cs",
+              "RelativeToolTip": "AddIpForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAawBUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:02:29.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddIpForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.cs",
+              "RelativeDocumentMoniker": "AddIpForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "AddIpForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T12:48:21.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\MainForm.Designer.cs",
+              "RelativeToolTip": "MainForm.Designer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:15:42.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddIpForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.Designer.cs",
+              "RelativeDocumentMoniker": "AddIpForm.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\pingerok\\AddIpForm.Designer.cs",
+              "RelativeToolTip": "AddIpForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T12:48:19.984Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
