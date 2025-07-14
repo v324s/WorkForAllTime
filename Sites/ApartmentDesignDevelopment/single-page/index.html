@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Desent | Дизайн-проект интерьера</title>
+	<script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap" rel="stylesheet">
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css"></style>
+</head>
+<body onload="goslide=true;slider();">
+	<main>
+		<header id="shapkamenu" class="shapka">
+			<div class="logoandtitle">
+				<main class="rodblockheader">
+					<section class="dochblockheader">
+						<div class="logoheader"></div><h1 class="titleheader">Desent</h1>
+					</section>
+				</main>
+			</div><menu class="limenu">
+				<main class="rodblockheader headerflexmenu">
+					
+					<section class="dochblockheader">
+						<a id="navbtn_glav" onclick="window.scrollTo(0, 0);" style="border-bottom: 2px solid;">Главная</a>
+						<a id="navbtn_brends" onclick="window.scrollTo(0, $('#slide_1').innerHeight()-72);">Виды</a>
+						<a id="navbtn_team" onclick="window.scrollTo(0, $('#slide_1').innerHeight()+$('#slide_2').innerHeight()-72);">Ремонт</a>
+						<a id="navbtn_onas" onclick="window.scrollTo(0, $('#slide_1').innerHeight()+$('#slide_2').innerHeight()+$('#slide_3').innerHeight()-72);">Разработка</a>
+						<a id="navbtn_conts" onclick="window.scrollTo(0, $('#slide_1').innerHeight()+$('#slide_2').innerHeight()+$('#slide_3').innerHeight()+$('#slide_4').innerHeight()-72);">Контакты</a>
+					</section>
+				<!--
+				<section class="dochblockheader">
+						<a id="navbtn_glav" onclick="scroolnizhe(0,500);" style="border-bottom: 2px solid;">Главная</a>
+						<a id="navbtn_brends" onclick="scroolnizhe($('#slide_1').innerHeight()-72,500);">Виды</a>
+						<a id="navbtn_team" onclick="scroolnizhe($('#slide_1').innerHeight()+$('#slide_2').innerHeight()-72,500);">Ремонт</a>
+						<a id="navbtn_onas" onclick="scroolnizhe($('#slide_1').innerHeight()+$('#slide_2').innerHeight()+$('#slide_3').innerHeight()-72,500);">Разработка</a>
+						<a id="navbtn_conts" onclick="scroolnizhe($('#slide_1').innerHeight()+$('#slide_2').innerHeight()+$('#slide_3').innerHeight()+$('#slide_4').innerHeight()-72,500);">Контакты</a>
+					</section>-->
+				</main>
+			</menu>
+		</header>
+		<a name="glav" class="yakor"></a>
+		<section id="slide_1" class="imageblock oneblock">
+			<div class="oneblockpic">
+				<!--
+					<div class="maintitlesite">YOU ARE OUR MODEL</div>
+					<div class="sitenameon1s"></div>
+				-->
+				<div class="buttongozakaz" onclick="scroolnizhe($('#slide_1').innerHeight()-72,500);">Заказать индивидуальный проект</div>
+			</div>
+		</section>
+		<a name="brends" class="yakor"></a>
+		<section id="slide_2" class="fourblock">
+			<div style="margin: auto;width: 100%;">
+
+				<div style="width: 90%;margin: auto;">
+				<h3 class="h3slide">Виды и типы дизайн-проектов</h3>
+				<div style="position: relative;">
+					<p>Дизайн-проект интерьера квартиры — это пакет документов, который состоит из подробных планов, чертежей и эскизов будущего оформления подсобных и жилых помещений. Комплекты проектной документации различаются между собой видом услуг, объемом работ и ценой.</p>
+					<div class="variki">
+						<h3 style="margin: 0; color: black;">Базовый вариант</h3>
+						<p>В понятие базового проекта интерьера входит:</p>
+						<li>подготовка обмерного чертежа;</li>
+						<li>подготовка обмерного чертежа;</li>
+						<li>разработка чертежей размещения сантехники;</li>
+						<li>создание плана размещения мебели, домашней техники;</li>
+						<li>планировку разводки электрики, расположение светильников;</li>
+						<li>варианты планировки для каждого помещения в квартире.</li>
+						<img src="img/baz.jpg" style="width: 100%;">
+						<p>Помимо этого составляются рекомендации по подбору мебели, сантехники для ванной и оборудования для кухни. Обязательной составляющей базового дизайн-проекта является консультация по выбору и приобретению отделочных и строительных материалов.</p>
+					</div>
+					<div class="variki">
+						<h3 style="margin: 0; color: black;">Эскизный дизайн-проект</h3>
+						<p>Самым простым в разработке является эскизный проект интерьера. Кроме обязательного обмерного чертежа создается:</p>
+						<li>простой план несущих стен, а также перегородок, которые подлежат демонтажу;</li>
+						<li>схемы расстановки мебели, климатической и кухонной техники;</li>
+						<li>несколько альтернативных вариантов планировки помещений.</li>
+						<img src="img/eskiz.jpg" style="width: 100%;">
+					</div>
+					<div class="variki">
+						<h3 style="margin: 0; color: black;">Декоративный дизайн-проект</h3>
+						<img src="img/dek1.jpg" style="width: 49%;">
+						<img src="img/dek2.jpg" style="width: 49%;">
+						<img src="img/dek3.jpg" style="width: 49%;">
+						<img src="img/dek4.jpg" style="width: 49%;">
+						<p>Этот вид проектирования может быть как отдельным видом, так и входить в разработку полного дизайн-проекта интерьера. Декорирование выполняется после окончания отделочных работ. Работа по созданию декоративного проекта включает в себя разработку и оформление внутреннего пространства всех помещений в квартире, а также создание подробных эскизов в цвете и подбор: настенной графики; светильников и люстр; столовых приборов, скатертей; аксессуаров, скульптур и прочих элементов декора; домашнего текстиля — штор, постельного белья, покрывал, ковров.</p>
+					</div>
+					<div class="variki">
+						<h3 style="margin: 0; color: black;">Полномасштабный вариант</h3>
+						<p>Это наиболее развернутый вид дизайн-проекта, в который входит максимальное количество работ и услуг.</p>
+						<img src="img/poln.jpg" style="width: 100%;">
+						<div>
+							<div style="display: inline-block;width: 50%;vertical-align: top;">
+								<p>Полный дизайн-проект интерьера:</p>
+								<li>обмерный чертеж каждого помещения;</li>
+								<li>полная развертка стен;</li>
+								<li>план отделки потолка и пола;</li>
+								<li>схема расположения сантехники;</li>
+								<li>чертеж перегородок, подлежащих демонтажу;</li>
+								<li>эскиз расстановки мебели и бытовой техники;</li>
+								<li>план расположения дверных и оконных проемов;</li>
+								<li>схемы прокладки электропроводки и расположения светильников.</li>
+							</div><div style="display: inline-block;width: 50%;vertical-align: top;">
+								<p>Один из важных пунктов разработки проекта — составление нескольких эскизов интерьера по каждому помещению. Обязательной частью является и консультативная работа по подбору предметов мебели и прочих элементов оформления. Каждая деталь интерьера изображается в трехмерном виде при помощи специальных программ.</p>
+								<p>Разработка дизайн-проекта и 3D моделирование позволяют:</p>
+								<li>оценить конечный результат еще на начальной стадии планирования;</li>
+								<li>предотвратить возможные ошибки и недочеты;</li>
+								<li>избежать лишних расходов на исправление недоработок.</li>
+							</div>
+						</div>
+					</div>
+					<div class="variki">
+						<h3 style="margin: 0; color: black;">Авторский надзор</h3>
+						<p>По дополнительному согласованию возможно включение в список такого пункта, как авторский надзор. Этот вид услуг включает в себя:</p>
+						<li>наблюдение за точностью выполнения строительных и отделочных работ, а также соответствием использования материалов для отделки;</li>
+						<li>помощь в выборе и заказе отделочных материалов, предметов интерьера, сантехники, мебели, текстиля;</li>
+						<li>корректировка планов и чертежей из-за непредвиденных осложнений, которые могут возникнуть в ходе реализации проекта.</li>
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<a name="team" class="yakor"></a>
+		<section id="slide_3" class="threeblock">
+			<div style="margin: auto;width: 100%;">
+				<div style="width: 90%;margin: auto;">
+				<h3 class="h3slide">РЕМОНТ КВАРТИРЫ С ДИЗАЙН-ПРОЕКТОМ И АВТОРСКИМ НАДЗОРОМ</h3>
+				<p>Ремонт квартиры — это сложный процесс, который требует параллельного выполнения нескольких видов работ. Строительные компании обычно задействуют для ремонта одной квартиры одновременно несколько специализированных бригад. Строительные и отделочные работы ведутся точно по плану и в установленные сроки.</p>
+				<div style="display: inline-block;width: 50%;vertical-align: top;">
+								<p>Основные этапы ремонта квартиры «под ключ» с дизайн-проектом:</p>
+								<li>разработка проектной документации</li>
+								<li>получение разрешения на перепланировку и согласование проекта;</li>
+								<li>вынос и утилизация старой мебели;</li>
+								<li>закупка и доставка материалов на объект;</li>
+								<li>демонтажные и строительные работы;</li>
+								<li>штукатурные работы;</li>
+								<li>разводка инженерных коммуникаций;</li>
+								<li>отделочные работы;</li>
+								<li>уборка помещений и утилизация строительного мусора;</li>
+								<li>монтаж и отладка техники, климатических систем;</li>
+								<li>расстановка мебели, развешивание штор, картин.</li>
+							</div><div style="display: inline-block;width: 50%;vertical-align: top;">
+								<p>Высокий спрос на профессиональные дизайнерские и строительные услуги объясняется рядом весомых преимуществ:</p>
+								<li>для выполнения всех видов работ привлекаются только квалифицированные специалисты, поскольку компании дорожат своей репутацией;</li>
+								<li>строительная компания несет юридическую ответственность за качество и сроки выполнения ремонта;</li>
+								<li>составление подробных смет позволяет избежать перерасхода материалов;</li>
+								<li>специалисты компании берут на себя согласование проекта и получение всех необходимых разрешений;</li>
+								<li>благодаря услуге «авторский надзор» отделка и оформление ведется в точном соответствии с разработанным дизайн-проектом;</li>
+								<li>после окончания работ не требуется что-либо доделывать или настраивать — квартира полностью готова к заселению.</li>
+				</div>
+				</div>
+			</div>
+		</section>
+		<a name="onas" class="yakor"></a>
+		<section id="slide_4" class="fourblock" style="background-color: #f7f6f7;">
+			<div style="margin: auto;width: 100%;">
+				<h3 class="h3slide">ПОШАГОВАЯ РАЗРАБОТКА ДИЗАЙН-ПРОЕКТА</h3>
+				<section class="podinfoetaps">
+					<div style="width: 1%;display: inline-block;"><div class="polosaetaps"></div></div><div style="display: inline-block;width: 99%;">
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 1</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Обращение в Desent и первая встреча</h4>
+								<p>Вы звоните нам +7(123)456-78-90 или приходите к нам в офис.</p>
+								<p>Показываете чертежи помещений и обрисовываете свои пожелания. Мы предложим несколько эффективных вариантов реализации ваших идей.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 2</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Заключение договора</h4>
+								<p>Составляем договор с указанием объема работ, сроков и стоимости. Оплату можно вносить поэтапно, наличным или безналичным способом.</p>
+								<p>Мы рассчитываем на долгосрочные отношения и создаем комфортные условия сотрудничества.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 3</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Замеры и заполнение техзадания</h4>
+								<p>Дизайнер бесплатно выезжает на объект для замеров помещений, проведения консультации и сбора сведений. Изучение распорядка и привычек поможет создать идеальный интерьер для вашей семьи.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 4</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Создание проектной документации</h4>
+								<p>На основе ваших пожеланий и детального изучения особенностей помещения создаем несколько вариантов планировочных решений.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 5</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Разработка 3D визуализации</h4>
+								<p>Определяем стиль оформления интерьера и создаем 3Д визуализацию. На подробных фотореалистичных эскизах вы увидите полную картину будущего интерьера.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 6</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Корректировка чертежей</h4>
+								<p>Обсуждаем проект, прорабатываем детали, вносим необходимые изменения.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 7</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Составление сметы ремонта</h4>
+								<p>Точный расчет помогает сэкономить при закупке строительных и отделочных материалов из исключает их перерасход материалов в ходе ремонта.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 8</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Создание рабочих чертежей</h4>
+								<p>Согласованный и одобренный проект переводим в чертежи и схемы для строителей. Такой подход гарантирует 100% реализацию проекта.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 9</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Помощь в выборе отделочных материалов</h4>
+								<p>Помогаем подобрать отделку, мебель и сантехнику исходя особенностей из стиля оформления. Предложим альтернативные варианты, если приобретение предметов интерьера выйдет за рамки бюджета.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 10</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Передача дизайн проекта</h4>
+								<p>Вы получаете готовый комплект документов — эскизы, чертежи, схемы, планы.</p>
+							</div>
+						</div>
+					</div>
+					<div class="etaps">
+						<div class="etapnum">
+							<div class="etapnumpar">
+								<div class="etapnumchild">Этап 11</div>
+							</div>
+						</div><div class="etaptext">	
+							<div class="etappodtext">
+								<h4>Авторское сопровождение</h4>
+								<p>После завершения создания проекта консультируем вас в процессе выполнения строительных и отделочных работ. Предлагаем помощь в закупке материалов, берем на себя контроль за качеством и ходом ремонта.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</section>
+			</div>
+		</section>
+		<a name="conts" class="yakor"></a>
+		<section id="slide_5" class="threeblock" style="padding: 0;">
+			<div style="margin: auto;width: 100%;">
+				<div style="padding:1.5em;">
+					<h3 class="h3slide">КОНТАКТЫ</h3>
+					<section class="podinfoteam">
+						<div class="rowconts">
+							<div class="itemcont contcity">Димитровград</div><div class="itemcont">
+								<div>ул. Автостроителей 16,<br>Business Center, офис 205<br>Димитровград, Россия</div>
+							<!--
+								<div>
+									<div id="openmap" class="contviewmap">смотреть на карте</div>
+									<div style="display: none;"></div>
+								</div>
+							-->
+							</div><div class="itemcont">+7(123)456-78-90</div>
+						</div>
+					</section>
+				</div>
+				<iframe style="width: 100%;height: 50vh;" border="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.0836509792089!2d49.59174200779283!3d54.20975545544885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4167869ec7566927%3A0xbd2a1560ec08179a!2z0JTQuNC80LjRgtGA0L7QstCz0YDQsNC00YHQutC40Lkg0KLQtdGF0L3QuNGH0LXRgdC60LjQuSDQmtC-0LvQu9C10LTQtg!5e0!3m2!1sru!2sru!4v1582943556529!5m2!1sru!2sru" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+			</div>
+
+		</section>
+		<footer class="podval">
+			<div class="dochblockheader">
+				Димитровградский Технический Колледж<br>
+				Курсовой проект<br>
+				© Гусев В. Е., 2020
+			</div>
+		</footer>
+	</main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/func.js"></script>
+</body>
+</html>

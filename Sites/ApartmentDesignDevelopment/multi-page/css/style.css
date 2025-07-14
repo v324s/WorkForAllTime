@@ -1,0 +1,465 @@
+::-webkit-scrollbar { width: 5px; height: 5px;}
+::-webkit-scrollbar-button {  display: none; }
+::-webkit-scrollbar-track {  background-color: var(--opgrey);}
+::-webkit-scrollbar-track-piece { background-color: var(--opgrey);}
+::-webkit-scrollbar-thumb { height: 50px; background-color: white;; border-radius: 3px;}
+::-webkit-scrollbar-corner { display: none; }
+::-webkit-resizer { background-color: #666;}
+		html,body{
+			/*overflow: hidden;
+			height: 100%;*/
+			background-color: black;
+		}
+		body{
+			color: black;
+			font-family: 'Roboto Condensed';
+			padding: 0;
+    		margin: 0;
+    		background: linear-gradient(180deg,white 30%,#d6d5d5);
+		}
+		.oknobutton{
+			margin: 0 auto;
+		    border: 2px solid #56779a;
+		    font-size: 1.5em;
+    		padding: 0.2em;
+		    background-color: #56779a;
+		    color: white;
+		}
+		.oknobutton:hover{
+			cursor: pointer;
+			background-color: #668db7;
+		}
+		.centbl{
+			border: 0.15em solid white;
+			color: white;
+			margin: auto;
+			padding: 1em;
+			text-align: center;
+			font-size: 1em;
+		}
+		.titlebut{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		header{
+			padding-bottom: 0.5em;
+    		font-size: 2em;
+    		background: white;
+    		box-shadow: 0 0 4vh black;
+		}
+		footer{
+			padding-top: 1em;
+		}
+		.oneblock{
+			position: relative;
+			height: 100vh;
+		}
+		.oneblockpic{
+			background-image: url('../img/design.jpg');
+			    width: 100%;
+		    background-size: cover;
+		    background-position: center;
+		    height: 100%;
+		    display: flex;
+		}
+		.buttongozakaz{
+			    width: max-content;
+		    margin: auto;
+		    background-color: #941619;
+		        background-color: #a51316;
+		    padding: 7vh 9vh;
+		    font-size: 4.5vh;
+		    color: white;
+		    box-shadow: 0 0 4vh 8px black;
+		}
+		.buttongozakaz:hover{
+			cursor: pointer;
+		}
+		.twoblock{
+			min-height: 100vh;
+			padding: 1.5em;
+			padding-bottom: 0;
+			background-color: #d9d7d9;
+			display: flex;
+		}
+		.threeblock{
+			padding: 1.5em;
+			background-color: #fff;
+			display: flex;
+		}
+		.imageblock{
+			background-size: cover;
+			background-position: center;
+		}
+		main{
+		}
+		.podtxtinf{
+			display: flex;
+			height: 100%;
+		}
+		h2{
+			border-left: 0.2em solid #0066ff;
+    		padding-left: 0.4em;
+    		    display: block;
+			    font-size: 1.5em;
+			    margin-block-start: 0.83em;
+			    margin-block-end: 0.83em;
+			    margin-inline-start: 0px;
+			    margin-inline-end: 0px;
+			    font-weight: bold;
+		}
+		p, li{
+			    font-size: 1.2em;
+		}
+		.logoheader, .titleheader{
+			display: inline-block;
+		}
+		.rodblockheader{
+			display: flex;
+		}
+		.dochblockheader{
+			margin: auto;
+			text-align: center;
+		}
+		.shapka{
+			    color: white;
+			    position: fixed;
+			    height: 62px;
+    			/*padding: 0 1em;*/
+			     /*#ffffffc4;*/
+			    width: 100%;
+			    z-index: 999;
+		}
+		.logoandtitle, .rodblockheader{
+			height: 100%;
+		}
+		.logoheader{
+			background-image: url('../img/ico/logo.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			    width: 50px;
+    height: 50px;
+		}
+		.titleheader{
+			    vertical-align: super;
+		    padding-left: 12px;
+		    padding: 0;
+		    margin: 0; 
+       	 font-size: 1.2em;
+			padding-left: 1em;
+			color: black;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+			    padding: 10px;
+			    font-size:0.9em;
+		}
+		.logoandtitle{
+			position: absolute;
+			margin-left: 1em;
+		}
+		.limenu{
+			padding: 0;
+		    margin: 0;
+		    text-align: right;
+		}
+		.headerflexmenu{
+			width: max-content;
+		    position: absolute;
+		    right: 1em;
+		}
+		.inpttxt{
+			width: 100%;
+		    box-sizing: border-box;
+		    border: 2px solid #0066ff;
+		    border-radius: 20px;
+		    padding: 1em;
+		    background: none;
+		    color: white;
+		    margin: 0.5em 0;
+		}
+		h3{
+			    color: white;
+    text-align: center;
+    font-size: 2em;
+		}
+		.inptbtn{
+			    width: 100%;
+			    border: 2px solid #0066ff;
+			    border-radius: 20px;
+			    padding: 1em;
+			    background: #0066ff;
+			    color: white;
+			    box-sizing: border-box;
+			    margin: 0.5em 0;
+		}
+		.podval{
+			    background-color: black;
+		    color: #535353;
+		    padding: 1em;
+		}
+		.yakor{
+			padding: 0;
+			margin: 0;
+			width: 0;
+			height: 0;
+		}
+		.sitenameon1s{
+			margin: auto;
+			margin-bottom: 5vh;
+			    font-size: 10vh;
+		    font-weight: 200;
+		    color: white;
+		    background-image: url(../img/ico/down-chevron.svg);
+		    width: 10vh;
+		    height: 10vh;
+		    background-repeat: no-repeat;
+		}
+		.maintitlesite{
+			position: absolute;
+			margin: auto;
+			bottom: 30vh;
+			    font-size: 10vh;
+		    font-weight: 200;
+		    color: white;
+		    right: 3vh;
+		}
+		.itemteam{
+			display: inline-block;
+			vertical-align: top;
+			    padding: 0.4em;
+    		width: 300px;
+		}
+		.horeo{
+			background-image: url(../img/team/horeo.jpg);
+		}
+		.gendir{
+			background-image: url(../img/team/gendir.jpg);
+		}
+		.photog{
+			background-image: url(../img/team/photog.jpg);
+		}
+		.vizaj{
+			background-image: url(../img/team/vizaj.jpg);
+		}
+		.phototeam{
+			    height: 390px;
+    background-size: contain;
+    background-repeat: no-repeat;
+		}
+		.teamdolzh{
+    		font-weight: 300;
+    		font-size: 20px;
+		}
+		.teamif{
+			font-size: 1.3em;
+    		letter-spacing: 1px;
+    		font-size: 24px;
+		}
+		.h3slide{
+			    font-weight: 500;
+        padding: 0 0 0.5em 0;
+    font-size: 2.5em;
+    /*height: 1.6em;*/
+    width: 50%;
+    margin: 0 auto;
+    color: black;
+    border-bottom: 2px solid #635e5d;
+    margin-bottom: 1.5%;
+		}
+		.rowitems{
+			display: inline-block;
+			height: 492px;
+		}
+		.podinfoetaps{
+			width: 90%;
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+		}
+		.itemcont{
+			width: 33%;
+			text-align: center;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.rowconts{
+			justify-content: space-between;
+    		font-size: 20px;
+		}
+		.contcity{
+			    font-size: 30px;
+    		font-weight: 600;
+		}
+		.contviewmap{
+			    font-weight: 300;
+		}
+		#framemap{
+			z-index: 888;
+			position: fixed;
+			left: 0;
+			top: 0;
+			height: 100vh;
+			width: 30%;
+			background-color: black;
+			display: none;
+		}
+		#openmap{
+			    padding-top: 5%;
+		}
+		#openmap:hover{
+			cursor: pointer;
+		}
+		.itemdorog{
+			display: inline-block;
+			color: white;
+			font-size: 30px;
+			    margin: 2vh 3vh;
+			    background-position: center;
+			    background-size: cover;
+			    height: 150px;
+			    width: 300px;
+			    vertical-align: top;
+		}
+		.fourblock{
+			padding: 1.5em;
+		    background-color: #f7f6f7;
+		    display: flex;
+		}
+		a:hover{
+			cursor: pointer;
+		}
+		.dor1{
+			background-image: url(../img/brands/bazar.png);
+		}
+		.dor2{
+			background-image: url(../img/brands/ck.png);
+		}
+		.dor3{
+			background-image: url(../img/brands/DG.png);
+		}
+		.dor4{
+			background-image: url(../img/brands/EF.png);
+		}
+		.dor5{
+			background-image: url(../img/brands/guc.png);
+		}
+		.dor6{
+			background-image: url(../img/brands/lv.png);
+		}
+		.dor7{
+			background-image: url(../img/brands/pp.png);
+		}
+		.dor8{
+			background-image: url(../img/brands/valen.png);
+		}
+		.dor9{
+			background-image: url(../img/brands/vog.png);
+		}
+		.dor10{
+			background-image: url(../img/brands/vw.png);
+		}
+		.dor11{
+			background-image: url(../img/brands/zara.png);
+		}
+		#sliderbrand{
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.etaps{
+			margin: 5vh 0;
+			position: relative;
+		    background-color: white;
+    		margin-left: 2.5%;
+    box-shadow: 0 0 2vh 0px black;
+		}
+		.etapnum, .etaptext{
+			display: inline-block;
+			vertical-align: top;
+		}
+		.etapnum{
+			width: 30%;
+		}
+		.etaptext{
+			width: 70%;
+		}
+		.etapnumpar{
+			position: absolute;
+		    bottom: 0;
+		    top: 0;
+		    left: 0;
+		    width: 30%;
+		    display: flex;
+		    background-color: #a51316;
+		}
+		.etapnumchild{
+			margin: auto;
+		    color: white;
+		    font-size: 5vh;
+		}
+		h4{
+			font-size: 24px;
+    		margin: 0;
+    		text-align: center;
+		}
+		.etappodtext{
+			padding: 2vh 5vh;
+			text-align: left;
+		}
+		.polosaetaps{
+			    position: absolute;
+		    top: 0;
+		    width: 0.5vh;
+		    height: 100%;
+		    background-color: black;
+		}
+		.etaps:before{
+			/*    content: "";
+		    width: 4vh;
+		    height: 4vh;
+		    background-color: black;
+		    position: absolute;
+		    top: 0%;
+		    left: -3.2%;
+		    border-radius: 50%;*/
+		    /* border: double 1.5vh #f7f6f7;*/
+		     content: "";
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    top: 38.5%;
+    left: -5.2%;
+    border-radius: 50%;
+    border: double 1.5vh #f7f6f7;
+
+		}
+		.etaps:after{
+			/*content: "";
+		    width: 4vh;
+		    height: 4vh;
+
+		    background-color: black;
+		    position: absolute;
+		    top: 0%;
+		    left: -3.2%;*/
+		    content: "";
+		    width: 20px;
+		    height: 20px;
+		    background-color: #a51316;
+		    position: absolute;
+		    top: 43.5%;
+		    left: -0.7%;
+		    transform: rotate(45deg);
+		}
+		.variki{
+			    width: 80%;
+		    margin: 0 auto;
+		    border-left: 4px solid #a51316;
+		    padding: 2vh 8vh;
+		    background-color: white;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		}
