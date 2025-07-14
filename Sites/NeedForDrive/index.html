@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Need for drive</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="fonts/roboto.css" rel="stylesheet">
+	<link href="css/defstul.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<section id="menu">
+		<div class="atmenu">
+			<div id="closemenu"></div>
+			<div class="podbutmenu">
+				<ul>
+					<li id="li1" class="fontmenu" onclick="openslide(1);">ПАРКОВКА</li>
+					<li id="li2" class="fontmenu" onclick="openslide(2);">СТРАХОВКА</li>
+					<li id="li3" class="fontmenu" onclick="openslide(3);">БЕНЗИН</li>
+					<li id="li4" class="fontmenu" onclick="openslide(4);">ОБСЛУЖИВАНИЕ</li>
+				</ul>
+				<nav>
+					<a href="https://tlgrm.ru" id="teleg" class="inln"></a><a href="https://facebook.com" id="faceb" class="inln"></a><a href="https://instagram.com" id="instag" class="inln"></a>
+				</nav>
+				<button class="mbllang">
+					<span id="mlang">Eng</span>
+				</button>
+			</div>
+		</div>
+	</section>
+	<section id="navig">
+		<div class="podnav">
+			<button id="menu_btn"></button>
+			<button class="bllang">
+				<span id="lang">Eng</span>
+			</button>
+		</div>
+	</section>
+	<main>
+		<header>
+			<section class="padd">
+				<div id="mobmenu"></div>
+				<div class="inln logo">Need for drive</div><div class="inln rblock">
+					<div id="map">
+						<div class="inln icomap"></div><div class="inln namecity">
+							<span class="city">Ульяновск</span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</header>
+		<section class="heroblock">
+			<h2 class="z2">Каршеринг</h2>
+			<h1 class="z1">Need for drive</h1>
+			<h3 class="z3">Поминутная аренда автомобилей</h3>
+			<button id="butzabr"><span class="fontbutzabr">Забронировать</span></button>
+		</section>
+
+
+		<section class="slideinmain" style="position: relative;">
+			<div style="height: 100%">
+			<a id="yakorsl_1" name="slide_1"></a>
+			<div class="showslide" id="mslide_1">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Бесплатная парковка</h5>
+						<p class="inform">Оставляйте машину на платных городских парковках и разрешенных местах, не нарушая ПДД, а также в аэропортах.</p>
+						<button id="mbutpodrob_1"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<a id="yakorsl_2" name="slide_2"></a>
+			<div class="hideslide" id="mslide_2">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Страховка</h5>
+						<p class="inform">Полная страховка страховка автомобиля</p>
+						<button id="mbutpodrob_2"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<a id="yakorsl_3" name="slide_3"></a>
+			<div class="hideslide" id="mslide_3">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Бензин</h5>
+						<p class="inform">Полный бак на любой заправке города за наш счёт</p>
+						<button id="mbutpodrob_3"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<a id="yakorsl_4" name="slide_4"></a>
+			<div class="hideslide" id="mslide_4">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Обслуживание</h5>
+						<p class="inform">Автомобиль проходит еженедельное ТО</p>
+						<button id="mbutpodrob_4"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+
+
+		<footer>
+			<div class="podfoot">
+				<div class="inln ccomp">© 2016-2019 «Need for drive»</div><div class="inln" style="float: right;line-height: 15px;"><a href="tel:84952342244" class="numtel" rel="nofollow">8 (495) 234-22-44</a></div>
+			</div>
+		</footer>
+	</main>
+	<aside>
+		<section class="podslids">
+			<div class="showslide" id="slide_1">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Бесплатная парковка</h5>
+						<p class="inform">Оставляйте машину на платных городских парковках и разрешенных местах, не нарушая ПДД, а также в аэропортах.</p>
+						<button id="butpodrob_1"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<div class="hideslide" id="slide_2">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Страховка</h5>
+						<p class="inform">Полная страховка страховка автомобиля</p>
+						<button id="butpodrob_2"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<div class="hideslide" id="slide_3">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Бензин</h5>
+						<p class="inform">Полный бак на любой заправке города за наш счёт</p>
+						<button id="butpodrob_3"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+			<div class="hideslide" id="slide_4">
+				<div class="blackalph">
+					<div class="paddi">
+						<h5 class="zagolovsl">Обслуживание</h5>
+						<p class="inform">Автомобиль проходит еженедельное ТО</p>
+						<button id="butpodrob_4"><span class="fontbutzabr">Подробнее</span></button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div style="width: 100%; height: 100%; z-index: 100;position: absolute;top: 0;">
+		<div id="previ">
+			<div class="podarrow">
+				<div class="arrow arleft"></div>
+			</div>
+		</div>
+		<div id="next">
+			<div class="podarrow">
+				<div class="arrow arright"></div>
+			</div>
+		</div>
+		<div class="blockdots">
+			<div id="gs_1" class="inln dot dotact"></div><div id="gs_2" class="inln dot"></div><div id="gs_3" class="inln dot"></div><div id="gs_4" class="inln dot"></div>
+		</div>
+		</div>
+	</aside>
+	<script type="text/javascript" src="js/func.js"></script>
+</body>
+</html>
