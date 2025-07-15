@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПУБД - Программа Управления Базой данный</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <section class="body__menu">
+        <header class="body__menu__header m-0-auto w-80">
+            <h2>Таблицы</h2>
+        </header>
+        <nav class="body__menu__nav">
+            <ul class="ta-center">
+                <li onclick="showTable('category', this)">Категории</li>
+                <li onclick="showTable('subcategory', this)">Подкатегории</li>
+                <li onclick="showTable('sizes', this)">Размеры</li>
+                <li onclick="showTable('colors', this)">Цвета</li>
+                <li onclick="showTable('products', this)">Товары</li>
+                <li onclick="showTable('users', this)">Пользователи</li>
+                <li onclick="showTable('cart_users', this)">Корзина</li>
+                <li onclick="showTable('orders', this)">Заказы</li>
+            </ul>
+        </nav>
+    </section>
+    <section class="body__viewer">
+        <div id="response"></div>
+    </section>
+    <script src="js/showTable.js"></script>
+    <script src="js/action_add.js"></script>
+    <script src="js/action_delete.js"></script>
+    <script src="js/action_edit.js"></script>
+</body>
+</html>
