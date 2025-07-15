@@ -1,0 +1,14 @@
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+  text-decoration: none;
+  color: var(--gray-dark);
+}
+p{
+	margin: 0;
+}

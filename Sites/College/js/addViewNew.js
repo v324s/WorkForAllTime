@@ -1,0 +1,1 @@
+$.post('../api/addViewNew.php',{newId:newId},function (e){console.log(e)});

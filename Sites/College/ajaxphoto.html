@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax Upload</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+  function readImage ( input ) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#preview').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function printMessage(destination, msg) {
+
+    $(destination).removeClass();
+
+    if (msg == 'success') {
+
+    }
+
+    if (msg == 'error') {
+      $(destination).addClass('alert alert-danger').text('Произошла ошибка при загрузке файла.');
+    }else{
+      $(destination).addClass('alert alert-success').text(msg);
+      url_img=msg;
+    }
+
+  }
+
+  $('#image').change(function(){
+    readImage(this);
+  });
+
+  $('#upload-image').on('submit',(function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+
+    $.ajax({
+      type:'POST', // Тип запроса
+      url: 'handler.php', // Скрипт обработчика
+      data: formData, // Данные которые мы передаем
+      cache:false, // В запросах POST отключено по умолчанию, но перестрахуемся
+      contentType: false, // Тип кодирования данных мы задали в форме, это отключим
+      processData: false, // Отключаем, так как передаем файл
+      success:function(data){
+        printMessage('#result', data);
+      },
+      error:function(data){
+        console.log(data);
+      }
+    });
+  }));
+});
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>Image upload</h1>
+          <div class="image-preview">
+            <img id="preview" src="" alt="">
+          </div>
+          <form id="upload-image" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="image">Image file:</label>
+              <input type="file" name="image" id="image">
+            </div>
+            <input type="submit" class="btn btn-default">
+          </form>
+          <div id="result">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Фамилия</label>
+        <input type="text" id="familiya">
+      </div>
+      <div class="form-group">
+        <label>Имя</label>
+        <input type="text" id="imya">
+      </div>
+      <div class="form-group">
+        <label>Отчество</label>
+        <input type="text" id="otch">
+      </div>
+      <div class="form-group">
+        <label>Должность</label>
+        <input type="text" id="dolzh">
+      </div>
+      <div class="form-group">
+        <label>Контактный телефон</label>
+        <input type="tel" id="tel">
+      </div>
+      <div class="form-group">
+        <label>Электронная почта</label>
+        <input type="email" id="email">
+      </div>
+      <div class="form-group">
+        <select id="class" name="class">
+          <option disabled selected></option>
+          <option value="rukovod">Руководитель/заместитель</option>
+          <option value="pedagog">Педагог</option>
+          <option value="rukovod_pedagog">Руководитель/заместитель и педагог</option>
+        </select>
+      </div>
+<div>
+      <div class="form-group">
+        <label>Преподаваемые предметы, курсы, дисциплины</label>
+        <input type="text" id="otch">
+      </div>
+      <div class="form-group">
+        <label>Образование</label>
+        <input type="text" id="otch">
+      </div>
+      <div class="form-group">
+        <label>специальность по диплому</label>
+        <input type="text" id="otch">
+      </div>
+
+      <div class="form-group">
+        <label>Стаж работы</label>
+        <input type="text" id="otch">
+      </div>
+</div>
+<button onclick="$.post('api/addHumanInStructure.php',{
+  familiya:$('#familiya').val(),
+  imya:$('#imya').val(),
+  otch:$('#otch').val(),
+  dolzh:$('#dolzh').val(),
+  tel:$('#tel').val(),
+  email:$('#email').val(),
+  class:$('#class').val(),
+  src_img:url_img
+}, function (e){console.log(e)})">save</button>
+    </div>
+  </body>
+</html>
