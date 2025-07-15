@@ -8,8 +8,6 @@ Bootstrap + JS + PHP
 Структура отзыва: Дата, Автор, Оценка, Текст отзыва.
 
 ## Скриншоты
-<a href="https://docs.google.com/document/d/1d4J3ocAakQnc9iIungjhU1AgNZwtpKAy1W4EcnSEp9U/edit#">Тестовое задание</a>
-
 <p>json.encode - On</p>
 <img src="https://sun9-44.userapi.com/impg/xg14LgS4cfsL6eWTb1KfqK5Jp2OfB2fYqNGm2Q/HMVyBohK2T8.jpg?size=549x344&quality=96&sign=e6012815de675a84382f80c8ba62c533&type=album"><br>
 <img src="https://sun9-3.userapi.com/impg/gpI0xq9w7C7_JwacX8Nz5X8TPY4DGbEbvyzxXw/jXhnGmdu1Vc.jpg?size=1864x684&quality=96&sign=b8b71f24e73af1cd1cdbf5a1c05a51e2&type=album"><br>
