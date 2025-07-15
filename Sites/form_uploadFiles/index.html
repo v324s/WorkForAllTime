@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>загрузка</title>
+	<style type="text/css">
+		body{
+			font-size: 32px;
+		}
+	</style>
+</head>
+<body>
+	<form id="form" enctype="multipart/form-data">
+    <input type="file" name="userfile" id="userfile" multiple>
+    <input type="submit" value="Загрузить">
+</form>
+
+<p id="uploaded"></p>
+
+<p><progress max="100" value="0" id="progress"></progress></p>
+
+<p id="result"></p>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var progress    = document.getElementById("progress"),
+    uploaded    = document.getElementById("uploaded"),
+    result      = document.getElementById("result"),
+    maxFileSize = 50*1024*1024; //50мб
+
+document.getElementById("form").onsubmit = function(e) {
+    e.preventDefault();
+    var input = this.elements.userfile;
+    var file = input.files[0];
+
+    if (file.size >= maxFileSize) {
+        result.innerHTML = 'Слишком большой размер файла';
+        return false;
+    }
+
+    if (file) {
+        upload(file);
+    }
+}
+
+
+function upload(file) {
+    var ajax = new XMLHttpRequest();
+    ajax.upload.onprogress = function(event) {
+        uploaded.innerHTML = 'Загружено ' + event.loaded + ' из ' + event.total;
+        progress.setAttribute('max', event.total);
+        progress.value = event.loaded;
+    }
+
+    ajax.onload = ajax.onerror = function() {
+        if (this.status == 200) {
+            result.innerHTML = 'Файл успешно загружен';
+        } else {
+            result.innerHTML = 'Не удалось загрузить файл';
+        }
+    }
+
+    var formData = new FormData();
+    formData.append("userfile", file);
+
+    ajax.open("POST", "upload.php", true);
+    ajax.send(formData);
+}
+
+	</script>
+</body>
+</html>
+
