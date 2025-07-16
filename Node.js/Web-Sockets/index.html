@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<form name="disconnect">
+  <input type="submit" value="Отключиться"/>
+</form>
+
+<!-- форма подключения -->
+<form name="connect">
+  <input type="text" name="id" value="123456"/>
+  <input type="text" name="name" value="user_1"/>
+  <input type="submit" value="Подключиться"/>
+</form>
+
+<!-- форма для отправки сообщений -->
+<form name="publish">
+  <input type="text" name="message"/>
+  <input type="submit" value="Отправить"/>
+</form>
+
+<!-- здесь будут появляться входящие сообщения -->
+<div id="subscribe"></div>
+
+<script src="browser.js"></script>
+
+</body>
+</html>
