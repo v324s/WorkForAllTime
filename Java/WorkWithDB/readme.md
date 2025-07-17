@@ -1,1 +1,1 @@
-<video src='video.ts' width=>
+<video src='video.ts'>
