@@ -9,9 +9,12 @@
 ## Скриншоты
 Запуск программы (Windows - win32.bat/win64.bat, Linux - linux32/linux64)
 ![](img/1.jpg)
+
 Открываем алгоритм `alg.amp`
 ![](img/2.jpg)
+
 Запускаем алгоритм
 ![](img/3.jpg)
+
 Схема алгоритма
 ![](img/4.jpg)
