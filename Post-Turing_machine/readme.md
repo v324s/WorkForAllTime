@@ -1,4 +1,6 @@
 # Алгоритм на машине Поста
+![](img/example.jpg)
+
 ## Требования для запуска программы
 * Microsoft Visual C++ 2013 Redistributable
 * JAVA
