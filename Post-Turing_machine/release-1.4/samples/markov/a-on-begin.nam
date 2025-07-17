@@ -1,0 +1,1 @@
+{"commandTabs":[{"commands":[{"number":0,"sample":"ba","replacement":"ab","comment":""},{"number":1,"sample":"","replacement":"","comment":""}],"name":"Команды"}],"workareaTabs":[{"string":"babba","name":"Строка"}],"task":"Преобразовать строку, состоящую из символов a и b  \nтак, чтобы в его начале оказались все символы a, а в конце – все символы b. "}

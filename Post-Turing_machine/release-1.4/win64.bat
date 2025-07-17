@@ -1,0 +1,1 @@
+java -jar win64.jar
