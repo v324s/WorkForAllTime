@@ -4,8 +4,8 @@ if ($_GET['code']) {
 	$code=$_GET['code'];
 	setcookie('code',$code);
 	header('location: index');
-	$vk_app_id = '6655108'; //'6644316';  // id вашего приложения
-	$vk_app_secret = 'W73QMZSZAz5PciOoau6Z';//'Z1sUsbAdhxsRPXTy0VVk';  // секретный ключ вашего приложения
+	$vk_app_id = '';  // id вашего приложения
+	$vk_app_secret = '';  // секретный ключ вашего приложения
 
 	$url = 'https://oauth.vk.com/access_token?client_id='.$vk_app_id.'&client_secret='.$vk_app_secret.'&code='.$code.'&redirect_uri=http://localhost/';
 	$result = file_get_contents($url);
