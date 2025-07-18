@@ -1,0 +1,101 @@
+<?php
+
+$con=mysqli_connect("localhost","root","root","imt") or die("MySQL Connection Failed");
+header('content-type: text/html; charset= utf-8');
+function cartStatus() {
+	$cart="";
+	if (@$_COOKIE['cart']) { $cart=$_COOKIE['cart'];}
+	if (@$_GET['addtocart']) {
+		if (!@$_COOKIE['cart']) {
+			$cart=$_GET['addtocart'];
+		} else {
+			$cart=$cart."|".$_GET['addtocart'];
+		}
+		setcookie("cart","$cart");
+	}
+	if (@$_GET['clear']) {
+		setcookie("cart","");
+		$cart="";
+	}
+	if ($cart=="") { $cartCount="0"; }
+	else {
+		$cartArr=explode("|",$cart);
+		$cartCount=count($cartArr);
+	}
+	return $cartCount;
+}
+function cart() {
+	$cart="";
+	if (@$_COOKIE['cart']) { $cart=$_COOKIE['cart'];}
+	$cartArr=explode("|",$cart);
+	if ($cart=="") {
+		return '<hr width="500px" color=#00fadf>'."<h1>Корзина пуста</h1>";
+	}
+	else {
+		$cartCount=count($cartArr);
+		$cartTotalPrice=0;
+		foreach ($cartArr as $k => $v) {
+			$result=mysqli_query($con,"select * from products where id='$v'");
+			$row=mysqli_fetch_array($result);
+			$number=$k+1;
+			$content=$content.'<div class="news-s">'.$row['img'].'<h3>'.$row['name'].'</h3><br><br><h3>'.$row['price']." руб</h3></div>";
+			$cartTotalPrice=$cartTotalPrice+$row['price'];
+		}
+		$content=$content."<br><br>".'<hr width="500px" color=#00fadf>'."<h1>Всего: ".$cartTotalPrice." руб.</h1>";
+		$content=$content."<a href=\"orderform.php\">Оформить заказ</a>\n";
+	}
+	return $content;
+}
+$cartCount=cartStatus();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Интернет-магазин телефонов</title>
+	<link rel="icon" type="image/png" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body link="#FFFFFF"; alink="#ff0000" vlink="#00dcfd">
+<div class="perDiv">
+	<div class="logo"><img src="mat/gns.png" align="middle"></div>
+<div class="posleShapka"></div>
+	<div class="Lmenu"><img src="mat/menu.png">
+				<ul type="square" style="text-align: left">
+					<li style="list-style-image: url(mat/li/glav.png);"><a class="ul" href="index.php"><div class="menuspan">Главная</div></a></li>
+					<li style="list-style-image: url(mat/li/knop.png);"><a class="ul" href="knop-S.php"><div class="menuspan">Кнопочные телефоны</div></a></li>
+					<li style="list-style-image: url(mat/li/smart.png);"><a class="ul" href="smart-S.php"><div class="menuspan">Смартфоны</div></a></li>
+				</ul>
+	</div>
+	<div class="Rmenu"><img src="mat/rekl.png">Корзина:<br>
+<?
+echo "Кол-во товаров в карзине: ".$cartCount."шт.<br><br><br>";
+echo "<a href=\"cart.php?clear=1\">Очистить корзину</a> <br><br>","<a href=\"cart.php\">Перейти в корзину</a><br><br>";
+?>
+	</div>
+	<div class="soder">
+		<h1>ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+		<hr width="500px" color=#00fadf>
+					<br>
+<form id="orderform" name="orderform" method="post" action="order.php">
+	<input type="text" name="fio" id="fio" size="30" placeholder="ФИО">
+	<br><br>
+	<input type="text" name="gorod" id="gorod" size="30" placeholder="Город">
+	<br><br>
+	<input type="text" name="tel" id="tel" size="11" placeholder="Телефон" value="+7">
+	<br><br>
+	<input type="text" name="address" id="address" size="30" placeholder="Адрес">
+	<br><br>
+	<input type="text" name="email" id="email" size="30" placeholder="E-mail">
+	<br><br>
+	<input type="submit" name="submit" id="submit" value="Оформить">
+</form>
+	</div>
+	</div>
+	<div class="podval">
+		<p class="podvala">© 2016-2017 «П-21»</p>
+		<p class="podvala">Гусев Владислав</p>		
+	</div>
+	</div>
+</body>
+</html>
