@@ -1,0 +1,978 @@
+html,body{
+			height: auto;
+		}
+		a{
+			text-decoration: none;
+		}
+		body{
+			background-color: black;
+			margin: 0;
+			font-family: 'Yanone Kaffeesatz', sans-serif;
+			background-image: url(../img/page-bg.jpg?v=324);
+			/*background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center top;*/
+
+			top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;    
+		    /*position: fixed;*/
+		    background-repeat: no-repeat;
+		    background-position: center top;
+		    background-attachment: fixed;
+		}
+		.body{
+			margin: 300px auto 50px;
+			background-color: #027ba9;
+			width: 1200px;
+			color: white;
+			   /* background: linear-gradient(190deg,#14155d,#00103c,#0d63f7);*/
+			  /* background: linear-gradient(180deg,#14155d,#00103c,#0d63f7);*/
+			       background: linear-gradient(180deg,#2543af,#00103c,#0d63f7);
+		}
+		.poverhvsehprofile{
+			display: none;
+		}
+		.bigshapka{
+			/*border-top: 1px solid white;
+			border-bottom: 1px solid white;*/
+			height: 60px;
+			/*background-color: #027ba9;*/
+		    padding: 10px;
+		    background-color: #0052ff8a; /*#0253fec7;*/
+		}
+		.logovshapke{
+			background-image:url(../img/logo.png);
+			height: 60px;
+			width: 220px;
+			float: left;
+		}
+		.navi{
+			float: left;
+			margin-left: 25px;
+			/*margin-top: 12px;*/
+			padding: 5px 0;
+			height: 48px;
+		}
+		.nav{
+			float: left;
+			text-transform: uppercase;
+			color: white;
+			font-size: 26px;
+			text-align: center;
+		}
+		
+		.owl-next{
+			    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    background-color: #000000bf;
+    margin-top: -170px;
+    margin-left: 1140px;
+    font-size: 34px!important;
+    border-color: red;
+		}
+		.owl-prev{
+			    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    background-color: #000000bf;
+    margin-top: -170px;
+    margin-left: 10px;
+    font-size: 34px!important;
+    border-color: red;
+		}
+		.glavnaya{
+			margin-top: 2px;
+			padding: 0 30px;
+			    line-height: 48px;
+		}
+		.afisha{
+			padding: 0 30px;
+			    line-height: 48px;
+			        margin-top: 2px;
+		}
+		.akcii{
+			margin-top: 2px;
+			padding: 0 30px;
+			    line-height: 48px;
+		}
+		.okino{
+			margin-top: 2px;
+			padding: 0 30px;
+			    line-height: 48px;
+		}
+		.glavnaya:hover{
+			background-color: #0000009c;
+			margin: 0;
+			padding: 0 28px;
+			border: 2px solid white;
+		}
+		.afisha:hover{
+			background-color: #0000009c;
+			margin: 0;
+			padding: 0 28px;
+			border: 2px solid white;
+		}
+		.akcii:hover{
+			background-color: #0000009c;
+			margin: 0;
+			padding: 0 28px;
+			border: 2px solid white;
+		}
+		.okino:hover{
+			background-color: #0000009c;
+			margin: 0;
+			padding: 0 28px;
+			border: 2px solid white;
+		}
+		.formaction{
+			float: right;
+			height: 60px;
+			width: 238px;
+		}
+		.actvhod{
+			float: right;
+			width: 120px;
+			text-transform: uppercase;
+			font-size: 26px;
+			color: white;
+			    margin: auto;
+    text-align: center;
+    line-height: 48px;
+   /* margin-top: 8px;*/
+		}
+		.actvhod:hover{
+			background-color: #0000009c;
+			border: 2px solid;
+    		/*margin-top: 6px;*/
+		}
+		.actreg{
+			padding-top: 5px;
+			float: right;
+			width: 120px;
+			height: 25px;
+			text-transform: uppercase;
+			font-size: 26px;
+			text-align: center;
+			color: white;
+		}
+		.actreg:hover{
+			background-color: #222;
+		}
+		.avashapka{
+			background: url(../img/anon42.png) 1px 3px;
+			border-radius: 50px;
+			border: 2px solid white;
+			margin-top: 5px;
+			width: 48px;
+			height: 48px;
+			background-size: cover !important;
+			background-position: center !important;
+	    background-repeat: no-repeat !important;
+		}
+		.spisokaction{
+			float: right;
+			width: 120px;
+			height: 60px;
+			    display: flex;
+   /* margin-top: 6px;*/
+		}
+		.avashapka-mini{
+			display: none;
+		}
+		.spisokaction-mini{
+			display: none;
+		}
+		.seyvkino{
+			height: 626px;
+			width: 100%;
+			top: 0;
+		    left: 0;
+		    right: 0;
+		    background-position: center top;
+		        background-color: #02375f;
+		    background-image: url(http://www.gmsmagicalproductions.com/wp-content/uploads/2017/09/blue.jpg);
+		    background-size: cover;
+		}
+		.zagolovoksvk{
+			text-transform: uppercase;
+			font-size: 36px;
+			color: white;
+			margin: 0 auto;
+		        height: 48px;
+    width: 196px;
+		    text-align: center;
+		    padding-top: 18px;
+		    border: 1px solid #fff;
+		}
+		.dlyazagsvk{
+			width: 100%;
+			height: 112px;
+   			padding-top: 44px;
+
+		}
+		.afiblock{
+			width: max-content;
+		    border: 2px solid #10baff;
+		    padding: 25px;
+		    border-radius: 25px;
+		    background-color: #022e65;
+		        margin-top: 15px;
+		}
+		.afiimg{
+			display: inline-block;
+		    width: 220px;
+		    height: 304px;
+		    background-repeat: no-repeat;
+		    background-size: 100% 100%;
+		    overflow: hidden;
+		    vertical-align: middle;
+		}
+		.afiimg:hover{
+			cursor: pointer;
+		}
+		.afiop{
+			display: inline-block;
+		    width: 350px;
+		    height: 304px;
+		    vertical-align: middle;
+		    margin-left: 10px;
+		    position: relative;
+		}
+		.podcarusel{
+			height: 470px;
+    		padding-top: 23px;
+		}
+		.content-list{
+			white-space: nowrap;
+			height: 304px;
+			padding-bottom: 143px;
+		    overflow-x: hidden;
+		    overflow-y: hidden;
+		}
+		.itemfilm{
+			display: inline-block;
+		    width: 220px;
+		    height: 304px;
+		    border: 2px solid;
+		    background-repeat: no-repeat;
+		    background-size: 100% 100%;
+		    overflow: hidden;
+		    margin-left: 6px;
+		    position: relative;
+		}
+		.if1{
+			    /*margin-left: 15px;*/
+			background-image: url(../img/films/1.jpg);
+		}
+		.if2{
+		    /*margin-left: 15px;*/
+   			background-image: url(../img/films/2.jpg);
+		}
+		.if3{
+			/*margin-left: 15px;*/
+    		background-image: url(../img/films/3.jpg);
+		}
+		.if4{
+			/*margin-left: 15px;*/
+    		background-image: url(../img/films/4.jpg);
+		}
+		.if5{
+			/*margin-left: 15px;*/
+    		background-image: url(../img/films/5.jpg);
+		}
+		.if6{
+			/*margin-left: 15px;*/
+    		background-image: url(../img/films/6.jpg);
+		}
+/*
+		::-webkit-scrollbar-button:horizontal{
+			background-color: black; 
+			border:1px solid; 
+		}
+		::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece, ::-webkit-scrollbar, ::-webkit-scrollbar-corner  {
+			background-color: black;
+			border:1px solid #4c0101;
+		}
+		::-webkit-scrollbar-thumb{
+			/* ползунок */
+			/*background-color: white;
+
+			border:1px solid black;
+		}*/
+		::-webkit-scrollbar { width: 5px; height: 5px;}
+		::-webkit-scrollbar-button {  display: none; }
+		::-webkit-scrollbar-track {  background-color: #312e2a;}
+		::-webkit-scrollbar-track-piece { background-color: #312e2a;}
+		::-webkit-scrollbar-thumb { height: 50px; background-color: #10baff;; border-radius: 3px;}
+		::-webkit-scrollbar-corner { display: none; }
+		::-webkit-resizer { background-color: #666;}
+		.overlay{
+			background-color: #000000d9 /*#000000b5*/;
+		    padding: 10px 10px;
+		    width: 200%;
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+		}
+		.infaofilmesvk{
+			width: 45.5%;
+    		float: left;
+		}
+		.actionfilmsvk{
+			width: 45.5%;
+    		float: right;
+    		text-align: center;
+		}
+		.nazvaniesvk{
+		    text-transform: uppercase;
+		    font-size: 24px;
+		    width: 92%;
+		    word-break: normal;
+		        white-space: normal;
+		}
+		.zhanrsvk{
+			text-transform: uppercase;
+		    color: red;
+		    font-size: 20px;
+		        white-space: normal;
+		}
+		.overlay:hover{
+			transition: 0.5s;
+			margin-left: -108%;
+		}
+		.overlay:not(:hover){
+			transition: 0.5s;
+		}
+		.podrobsvk{
+			margin: 0 auto;
+		    text-transform: uppercase;
+		    font-size: 22px;
+		    width: 60%;
+		    padding: 5px;
+		    color: white;
+		    border: 1px solid white;
+		    /* background-color: #000000a8; */
+		}
+		.podrobsvk:hover{
+			background-color: #000000a8;
+			cursor: pointer;
+		}
+		.nzavfilm{
+			font-size: 24px;
+			color:white;
+			display: inline-block;
+			max-width: 350px;
+		}
+		.nzavfilm:hover{
+			cursor: pointer;
+		}
+		.ogrvozr{
+			display: inline-block;
+			    margin-left: auto;
+			border-radius: 20px;
+		    width: 40px;
+		    text-align: center;
+		    height: 40px;
+		    color: white;
+		    line-height: 40px;
+		    font-size: 24px;
+		    border: 2px solid white;
+		    vertical-align: bottom;
+		}
+		.buyticket{
+			width: max-content;
+		    font-size: 28px;
+		    margin: 0 auto;
+  color: white;
+  text-decoration: none;
+      text-shadow: 0 -1px 1px #00b9cc;
+  user-select: none;
+  padding: .8em 2em;
+  outline: none;
+  border-radius: 1px;
+      background: linear-gradient(to left, rgba(0,0,0,.3), rgba(0,0,0,.0) 50%, rgba(0,0,0,.3)), linear-gradient(#316cd7, #17b3fe, #3173d7);
+  background-size: 100% 100%, auto;
+  background-position: 50% 50%;
+      box-shadow: inset #009feb 0 -1px 1px, inset 0 1px 1px #007eff, #229dcc 0 0 0 1px, #00dcff 0 14px 33px -13px;
+  transition: 0.2s;
+  margin-top: 20px;
+		}
+		.buyticket:hover {
+  background-size: 140% 100%, auto;
+  cursor: pointer;
+}
+		.buyticket:active {
+  top: 1px;
+  color: #ffdead;
+  box-shadow: inset #ebab00 0 -1px 1px, inset 0 1px 1px #ffbf00, #cc7722 0 0 0 1px, 0 10px 10px -9px #000;
+}		
+		.settimebl{
+			/*color: #064ff4;
+		    border: 2px solid #0a56fa;*/
+			/*color: red;
+			border: 2px solid red;*/
+			color: #10baff;
+			border: 2px solid #10baff;
+			    background-color: #033779;
+		    font-size: 28px;
+		    display: inline-block;
+		    padding: 10px 20px;
+		    border-radius: 25px;
+		    margin: 0 10px;
+		}
+		.settimebl:hover{
+			background-color: #003e8d;
+			cursor: pointer;
+		}
+		.cupoint:hover{
+			cursor: pointer;
+		}
+		.owl-dots{
+			display: none;
+		}
+		.goodbron{
+			text-align: center;
+		    padding: 20px;
+		    font-size: 24px;
+		    color: #04c701;
+		    border: 2px solid;
+		    width: max-content;
+		    margin: 15px auto 0;
+		}
+		.stupenbuytic{
+			padding: 10px 20px;
+		    width: max-content;
+		    display: inline-block;
+		    font-size: 24px;
+		    color: white;
+		}
+		.blockintable{
+			width: 25px;
+		    height: 25px;
+		    text-align: center;
+		    line-height: 25px;
+		    color: white;
+		    background-color: #737373;
+		}
+		.blockintable:hover{
+			cursor: pointer;
+		}
+		.infofilme{
+			    color: white;
+			    display: inline-block;
+			    width: 50%;
+			    margin-left: 20px;
+			    font-size: 22px;
+			    position: absolute;
+   				margin-top: 62px;
+   				width: 360px;
+
+		}
+		.imginffilm{
+			width: 400px;
+		    height: 600px;
+		    background-size: cover!important;
+		    background-position: center!important;
+		    background-repeat: no-repeat!important;
+		    margin-top: 20px;
+		}
+		.zhanrofilm{
+			font-size: 20px;
+    color: #0fc8ff /*#ff0f0f*/;
+
+		}
+		.nazviphoto{
+			display: inline-block;
+			max-width: 400px;
+			border-right: 1px solid white;
+    		padding-right: 20px;
+		}
+		.buyticketsvk{
+			margin: 5px auto 0;
+		    text-transform: uppercase;
+		    font-size: 22px;
+		    width: 60%;
+		    padding: 7px 5px 5px;
+		    color: black;
+		    border: 1px solid black;
+		    background-color: #ffffff;
+		}
+		.buyticketsvk:hover{
+			background-color: black;
+			border: 1px solid white;
+			color: white;
+			cursor: pointer;
+		}
+		.contacts{
+			margin: 0px auto;
+		   
+		    padding: 20px;
+		}
+		.logoincont{
+			background-image: url(../img/logo.png);
+		    height: 60px;
+		    width: 220px;
+		    margin: 0px auto;
+		}
+		.strokaincont{
+			max-width: 590px;
+   			margin: 10px auto;
+   			min-height: 35px;
+   			max-height: 70px;
+		}
+		.icocall{
+			background-image: url(../img/call.png);
+		    height: 35px;
+		    width: 35px;
+		    float: left;
+		}
+		.icopos{
+			background-image: url(../img/pos.png);
+		    height: 35px;
+		    width: 35px;
+		    float: left;
+		}
+		.icotime{
+		    background-image: url(../img/time.png);
+		    height: 35px;
+		    width: 35px;
+		    float: left;
+		}
+		.icomail{
+		    background-image: url(../img/mail.png);
+		    height: 35px;
+		    width: 35px;
+		    float: left;
+		}
+		.txtcont{
+		    font-size: 30px;
+		    padding-top: 4px;
+		    margin-left: 45px;
+		        text-shadow: 3px 2px 2px black;
+		}
+		.conthr{
+			margin: 20px auto;
+		    width: 55%;
+		    height: 1px;
+		    background-color: white;
+		}
+		.txtfooter{
+			        /*background: linear-gradient(to right, #0b53d3 20%, #131468 50%, #073c9f 80%);*/
+			        background: linear-gradient(to right, #0b53d3 20%, #131468 50%, #0b53d3 80%);
+		    text-align: center;
+		    padding: 10px;
+		    font-size: 20px;
+		}
+		.image{
+			width: 51%;
+			cursor: pointer;
+		}
+		.image:focus{
+			transition: 0.5s;
+			width: 100%;
+		}
+		.image:not(:focus){
+			transition: 0.5s;
+			width: 51%;
+		}
+		.poverhvseh{
+			background-color: #000000d9;
+		    width: 100%;
+		    height: 100%;
+		    position: fixed;
+		    margin: -300px 0 0 0;
+			display: none;
+			z-index:10;
+		}
+		.poverhvsehreg{
+			background-color: #000000d9;
+		    width: 100%;
+		    height: 100%;
+		    position: fixed;
+		    margin: -300px 0 0 0;
+			display: none;
+		}
+		.poverhvsehprofile{
+			background-color: #000000d9;
+		    width: 100%;
+		    height: 100%;
+		    position: fixed;
+		    margin: -300px 0 0 0;
+			display: none;
+		}
+		.actvhod:hover{
+			cursor: pointer;
+		}
+		.poverhokno{
+			    height: 273px;
+			max-width: 500px;
+		    margin: auto;
+		    padding: 20px;
+		    background-color: black;
+		    border: 1px solid white;
+		}
+		.poverhoknoreg{
+			max-width: 500px;
+		    margin: auto;
+		    padding: 20px;
+		    background-color: black;
+		    border: 1px solid white;
+		}
+		.oknozag{
+			text-align: center;
+		    color: white;
+		    text-transform: uppercase;
+		    font-size: 36px;
+		}
+		.oknohr{
+			height: 1px;
+		    background-color: white;
+		    margin: 30px 0 0;
+		}
+		.autorizevk{
+			float: left;
+		    background-color: #5181b8;
+		    color: #fff;
+		    margin-left: 10px;
+		    text-align: center;
+		    width: 44%;
+		    padding: 8px 0;
+		    font-size: 24px;
+		    margin-top: 50px;
+		}
+		.autorizevk:hover{
+			cursor: pointer;
+			background-color: #2469b7;
+		}
+		.oknotextinput{
+		    border: 1px solid white;
+		    padding: 5px;
+		    font-size: 24px;
+		    background-color: black;
+		    color: white;
+		}
+		.oknobutton{
+			margin-top: 10px;
+			border: 2px solid #56779a;
+			padding: 5px;
+			font-size: 26px;
+			background-color: #56779a;
+			color: white;
+			    width: 300px;
+		}
+		.oknobutton:hover{
+			cursor: pointer;
+			background-color: #668db7;
+		}
+		.closeokno{
+			background-image: url(../img/close.png);
+		    height: 50px;
+		    width: 50px;
+		    float: right;
+		    margin-top: -80px;
+		    margin-right: -45px;
+		    background-color: black;
+		    border-radius: 8px;
+		}
+		.closeokno:hover{
+			cursor: pointer;
+			transition: 0.5s;
+			background-image: url(../img/close2.png);
+		}
+		.closeokno:not(:hover){
+			transition: 0.5s;
+			background-image: url(../img/close.png);
+		}
+		.actreg:hover{
+			cursor: pointer;
+		}
+		.register{
+			width: 80%;
+			margin: 0 auto;
+		}
+		.regtextinput{
+		    border: 1px solid white;
+		    padding: 5px;
+		    font-size: 24px;
+		    background-color: black;
+		    color: white;
+		        margin: 0 auto;
+    width: 300px;
+    display: block;
+		}
+		.regbutton{
+			    width: 314px;
+    margin: 10px auto 0;
+			border: 1px solid black;
+			padding: 5px;
+			font-size: 26px;
+			background-color: #4c0101;
+			color: white;
+			display: block;
+		}
+		.regbutton:hover{
+			cursor: pointer;
+			background-color: #750202;
+		}
+		.resultquerry{
+			text-align: center;
+			font-size: 24px;
+			color: red;
+			padding: 15px;
+		}
+		.borderokna{
+			padding: 25px;
+   			margin: auto;
+		}
+		.bordershapkiava{
+			border: 2px solid white;
+		    float: left;
+		    border-radius: 25px;
+		    height: 52px;
+		    width: 52px;
+		    margin-top: 2px;
+		}
+		.bordershapkiava-mini{
+			display: none;
+		}
+		.bordershapkaavi-min{
+			display: none;
+		}
+		.bordershapkaavi-mini{
+			display: none;
+		}
+		.avishapka-mini{
+			display: none;
+		}
+
+		
+
+
+
+		.actreg{
+				text-align: right;
+			}
+			.savepass{
+				    width: 100%;
+    border: 1px solid red;
+    margin-top: 8px;
+    color: red;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 24px;
+			}
+			.savepass:hover{
+				background-color: #212020;
+				cursor: pointer;
+			}
+			.writepass{
+				    width: 100%;
+    border: 1px solid white;
+    padding: 5px;
+    font-size: 24px;
+    background-color: black;
+    color: white;
+			}
+			.newpass{
+				margin:0 auto;
+				width: 300px;
+			}
+			.butaction{
+				background-color: black;
+			    border: 1px solid white;
+			    color: white;
+			    text-transform: uppercase;
+			    text-align: center;
+			    height: 18px;
+    			padding-top: 8px;
+			    width: 100%;
+			}
+			.butaction:hover{
+				background-color: #2f2f2f;
+				cursor: pointer;
+			}
+			.actionprofile{
+				    float: left;
+    margin-left: 30px;
+    min-width: 100px;
+    max-width: 160px;
+    width: 100%;
+			}
+			.verhblockpf{
+				height: 90px;
+				    width: 500px;
+    margin: 0 auto;
+			}
+			.ifprof{
+				color: white;
+			    font-size: 26px;
+			    margin-top: 2px;
+			}
+			.balanseprof{
+				color: white;
+			    margin-top: 10px;
+			    font-size: 20px;
+			    margin-left: 69px;
+			}
+.biletovprof{
+	    color: white;
+    font-size: 20px;
+}
+				.imgava{
+					    width: 50px;
+			
+	    height: 50px;
+	    border-radius: 50px;
+	    border: 1px solid black;
+	        background-size: cover !important;
+	    background-position: center !important;
+	    background-repeat: no-repeat !important;
+				}
+				.borderava{
+					width: 52px;
+    height: 52px;
+    border: 2px solid white;
+    border-radius: 26px;
+				}
+				.podblockavi{
+					    width: 56px;
+    height: 56px;
+    /* padding: 2px 0; */
+    float: left;
+				}
+				.stataset{
+					    float: left;
+    margin-left: 20px;
+				}
+				#podblockavi{
+					display: none;
+				}
+				.butprofile{
+					width: 120px;
+				    height: 23px;
+				    text-transform: uppercase;
+				    font-size: 26px;
+				    text-align: center;
+				    color: white;
+				    margin: auto;
+    				padding: 10px 2px;
+				}
+				.butprofile:hover{
+					background-color: #0000009c;
+					border: 2px solid;
+					cursor: pointer;
+    				padding: 10px 0;
+				}
+				.spisokaction-logined{
+					display: flex;
+					float: right;
+					height: 60px;
+				}
+				
+
+
+
+	
+				.actinprofile{
+					    width: 562px;
+    				margin: 0 auto;
+				}
+				.blockact{
+					width: 182px;
+   					 display: inline-block;
+				}
+				.blockact:hover{
+					cursor: pointer;
+				}
+				.actimg{
+					    width: 100px;
+				    height: 100px;
+				    margin: 0 auto;
+				        padding: 10px;
+    
+				}
+				.acttitle{
+					    text-align: center;
+					    margin-top: 15px;
+					    font-size: 24px;
+					        margin: 10px;
+				}
+				.asett{
+					    background: url(../img/settings2.png);
+					    background-repeat: no-repeat;
+    background-position: center;
+				}
+				.aseans{
+				    background: url(../img/seans1.png);
+				    background-repeat: no-repeat;
+    background-position: center;
+				}
+				.ahist{
+			    	background: url(../img/historyop2.png);
+			    	background-repeat: no-repeat;
+    background-position: center;
+				}
+				.actinfa{
+					    width: 555px;
+    				margin: 0 auto;
+				}
+				.actinf{
+					border: 2px solid red;
+					margin-top: -2px;
+				}
+				.butinfa{
+    margin: 25px auto;
+    text-align: center;
+    font-size: 22px;
+				}
+				.uploadava{
+					    font-family: 'Yanone Kaffeesatz', sans-serif;
+					background-color: black;
+				    margin: 15px 0 15px 13px;
+				    width: 310px;
+				    border: 1px solid red;
+				    color: red;
+				    text-align: center;
+				    padding: 10px 5px;
+				    font-size: 24px;
+				}
+				.uploadava:hover{
+					background-color: #212020;
+				cursor: pointer;
+				}
+				.upfil{
+					    background-color: #a50b0b;
+					    margin: 15px 0 0 51px;
+					    width: 300px;
+					        padding: 10px 5px;
+
+					    background-color: #a50b0b;
+					    margin: 15px 0 0 31px;
+					    width: 300px;
+					    padding: 10px 5px;
+									}
+				.upfil:hover{
+					background-color: #de0c0c;
+					cursor: pointer;
+				}
+				.zagolset{
+					padding: 15px 0;
+				}
+				.blockinf1{
+					width: 370px;
+					margin:0 auto;
+					    background: linear-gradient(180deg,#171717,#0e0e0e,black);
+					    border-top: 1px solid white;
+				}
+				.blockinf2{
+					width: 400px;
+					margin:0 auto;
+					    background: linear-gradient(180deg,#171717,#0e0e0e,black);
+					    border-top: 1px solid white;
+				}
