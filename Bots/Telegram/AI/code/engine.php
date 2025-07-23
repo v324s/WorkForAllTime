@@ -116,7 +116,7 @@ function askAI($prompt) {
     ];
 
     $data = [
-        'model' => 'gpt-4o-mini', // Уточните название модели
+        'model' => 'gpt-4o-mini',
         'messages' => [
             ['role' => 'user', 'content' => $prompt]
         ],
