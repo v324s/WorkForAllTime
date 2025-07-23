@@ -3,52 +3,52 @@
 ## Стек
 WebHook + PHP + API
 ## Скриншоты
-![](img/1.jpg)
+<img src="img/1.jpg" width="50%">
 
-![](img/2.jpg)
+<img src="img/2.jpg" width="50%">
 
-![](img/3.jpg)
+<img src="img/3.jpg" width="50%">
 
-![](img/13.jpg)
+<img src="img/13.jpg" width="50%">
 
-![](img/4.jpg)
+<img src="img/4.jpg" width="50%">
 
-![](img/5.jpg)
+<img src="img/5.jpg" width="50%">
 
-![](img/6.jpg)
+<img src="img/6.jpg" width="50%">
 
-![](img/7.jpg)
+<img src="img/7.jpg" width="50%">
 
-![](img/8.jpg)
+<img src="img/8.jpg" width="50%">
 
-![](img/9.jpg)
+<img src="img/9.jpg" width="50%">
 
-![](img/10.jpg)
+<img src="img/10.jpg" width="50%">
 
-![](img/11.jpg)
+<img src="img/11.jpg" width="50%">
 
-![](img/12.jpg)
+<img src="img/12.jpg" width="50%">
 
-![](img/13.jpg)
+<img src="img/13.jpg" width="50%">
 
-![](img/14.jpg)
+<img src="img/14.jpg" width="50%">
 
-![](img/15.jpg)
+<img src="img/15.jpg" width="50%">
 
-![](img/16.jpg)
+<img src="img/16.jpg" width="50%">
 
-![](img/17.jpg)
+<img src="img/17.jpg" width="50%">
 
-![](img/18.jpg)
+<img src="img/18.jpg" width="50%">
 
-![](img/19.jpg)
+<img src="img/19.jpg" width="50%">
 
-![](img/20.jpg)
+<img src="img/20.jpg" width="50%">
 
-![](img/21.jpg)
+<img src="img/21.jpg" width="50%">
 
-![](img/22.jpg)
+<img src="img/22.jpg" width="50%">
 
-![](img/23.jpg)
+<img src="img/23.jpg" width="50%">
 
-![](img/24.jpg)
+<img src="img/24.jpg" width="50%">
