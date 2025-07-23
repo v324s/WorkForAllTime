@@ -35,8 +35,6 @@ WebHook + PHP + API
 
 <img src="img/15.jpg" width="50%">
 
-<img src="img/16.jpg" width="50%">
-
 <img src="img/17.jpg" width="50%">
 
 <img src="img/18.jpg" width="50%">
