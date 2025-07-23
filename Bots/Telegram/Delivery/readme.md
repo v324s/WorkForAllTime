@@ -9,8 +9,6 @@ WebHook + PHP + API
 
 <img src="img/3.jpg" height="900px">
 
-<img src="img/13.jpg" height="900px">
-
 <img src="img/4.jpg" height="900px">
 
 <img src="img/5.jpg" height="900px">
