@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Тестовое меню ресторана</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="//telegram.org/js/telegram-web-app.js"></script>
+    <script src="js/telegram_initApp.js"></script>
+    <script src="js/jquery.inputmask.bundle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <script>
+        const appTheme = [];
+        appTheme.color1 = '#53d353';
+        appTheme.color2 = '#000000';
+        appTheme.color3 = '#ffffff';
+
+        WebApp.MainButton.showProgress();
+        WebApp.MainButton.setParams(
+            {
+                'text':'Загрузка',
+                'is_visible':true,
+                'is_active':false
+            }
+        );
+    </script>
+</head>
+<body>
+    <div id="loader">
+        <div class="loader__block-logo">
+            <div class="loader__block-logo__logo-orig">
+                <img src="img/logo.png" alt="">
+            </div>
+            <div id="loader__logo-bw">
+                <img src="img/logo.png" alt="">
+            </div>
+        </div>
+        <div id="loader__progress"></div>
+        <div id="loader__progress_stat"></div>
+    </div>
+
+    <div id="order">
+        <div class="order__body">
+            <div id="order__main">
+                <div>Ваш заказ:</div>
+                <div id="order__items"></div>
+                <div class="order__total mb1">Итого: <span id="order__totalPrice">0</span> ₽</div>
+            </div>
+            <div id="wantOrder">
+                <form id="order-form" class="mb1">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <div class="d-flex">
+                                        <div><img class="order__symIco" src="img/card.svg"></div>
+                                        <div class="order__titleNeed">Ваше имя:</div>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: top;"><input id="order__name" style="margin-top: 0;" name="name" type="text" inputmode="text" placeholder="Имя"></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <div class="d-flex">
+                                        <div><img class="order__symIco" src="img/tel-black.svg?v=4"></div>
+                                        <div class="order__titleNeed">Номер телефона:</div>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: top;"><input id="order__tel" inputmode="numeric" data-plugin-inputmask="mask_tel" style="margin-top: 0;letter-spacing: 0.15rem;" name="name" type="text" placeholder="+7(___)___-__-__" style="letter-spacing: 0.3em;" minlength="16" maxlength="16"></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <div class="d-flex">
+                                        <div><img class="order__symIco" src="img/location.svg"></div>
+                                        <div class="order__titleNeed">Адрес доставки:</div>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <input id="order__addr_obl" type="text" style="margin-top: 0;" disabled="disabled" value="Ульяновская обл."><br>
+                                    <input id="order__addr_cit" type="text" disabled="disabled" value="г.Димитровград"><br>
+                                    <input id="order__addr_uli" type="text" placeholder="Улица"><br>
+                                    <input id="order__addr_hou" type="text" placeholder="Номер дома"><br>
+                                    <input id="order__addr_pod" type="number" placeholder="Подъезд"><br>
+                                    <input id="order__addr_flo" type="number" placeholder="Этаж"><br>
+                                    <input id="order__addr_kva" type="number" placeholder="Квартира">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <div><img class="order__symIco" src="img/comment.svg"></div>
+                                        <div class="order__titleNeed">Комментарий:</div>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: top;"><input id="order__comment" style="margin-top: 0;" name="comment" type="text" placeholder="Комментарий к заказу"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d-flex">
+                                        <div><img class="order__symIco" src="img/pay.svg"></div>
+                                        <div class="order__titleNeed">Метод оплаты:</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <div>
+                            <label>
+                                <div class="paymentMethod mt-1" data-paymethod="1">
+                                    <div class="paymentMethod__ico"><img class="order__symIco" src="img/payonline.svg"></div>
+                                    <div class="paymentMethod__text">Онлайн через Telegram</div>
+                                </div>
+                                <input type="radio" name="mo" class="order__mo" value="1" hidden="hidden"><br>
+                            </label>
+                            <label>
+                                <div class="paymentMethod" data-paymethod="4">
+                                    <div class="paymentMethod__ico"><img class="order__symIco" src="img/sbp.svg"></div>
+                                    <div class="paymentMethod__text">Онлайн через СБП</div>
+                                </div>
+                                <input type="radio" name="mo" class="order__mo" value="4" hidden="hidden"><br>
+                            </label>
+                            <label>
+                                <div class="paymentMethod" data-paymethod="2">
+                                    <div class="paymentMethod__ico"><img class="order__symIco" src="img/terminal.svg"></div>
+                                    <div class="paymentMethod__text">Картой курьеру</div>
+                                </div>
+                                <input type="radio" name="mo" class="order__mo" value="2" hidden="hidden"><br>
+                            </label>
+                            <label>
+                                <div class="paymentMethod" data-paymethod="3">
+                                    <div class="paymentMethod__ico"><img class="order__symIco" src="img/nal.svg"></div>
+                                    <div class="paymentMethod__text">Наличными</div>
+                                </div>
+                                <input type="radio" name="mo" class="order__mo" value="3" hidden="hidden"><br>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+
+
+    <a id="start"></a>
+    <div class="goTop">
+        <a href="#start" style="display: contents;">
+            <div class="goTop__bg"></div>
+            <div class="goTop__arrow"><img src="img/goTop.svg?v=1"></div>
+        </a>
+    </div>
+    <div class="mainBlock">
+        <div class="safeZone sZ-top"></div>
+        <div class="mainBlock__background_ios">
+            <div class="mainBlock__background_ios_crutches"></div>
+        </div>
+        <div class="mainBlock__alpha2"></div>
+        <div class="mainBlock__alpha"></div>
+        <div class="mainBlock__info">
+            <div class="mainBlock__info__logo logo_notVisibleWithBg">
+                <img src="img/icon.svg?v=3" alt="логотип">
+            </div>
+            <div class="mainBlock__info__menu">
+                <ul>
+                    <li><a href="#first">Первое блюдо</a></li>
+                    <li><a href="#second">Второе блюдо</a></li>
+                    <li><a href="#salats">Салаты</a></li>
+                    <li><a href="#deserts">Десерты</a></li>
+                    <li><a href="#drinks">Напитки</a></li>
+                </ul>
+            </div>
+            <div class="contacts">
+                <div class="d-flex mb-05">
+                    <div class="m-auto"><a href="javascript:WebApp.openLink(Cafe.contacts.vk);logs(`Открываем VK - ${Cafe.contacts.vk}`);"><img src="img/vk.svg?v=1" alt="vk"></a></div>
+                    <div class="m-auto"><a href="javascript:WebApp.openLink(Cafe.contacts.instagram);logs(`Открываем Instagram - ${Cafe.contacts.instagram}`);"><img src="img/instagram.svg?v=1" alt="instagram"></a></div>
+                    <div class="m-auto"><a href="javascript:WebApp.openTelegramLink(Cafe.contacts.telegram);logs(`Открываем Telegram - ${Cafe.contacts.telegram}`);"><img src="img/telegram.svg?v=1" alt="telegram"></a></div>
+                </div>
+                <div class="ta-c">
+                    <div class="d-flex">
+                        <div class="mr-0 m-auto"><img src="img/tel.svg" alt="Телефон"></div>
+                        <div class="ml-15 m-auto"><a onclick="window.open('https://site.ru/tools/number?tel=88005553535&os='+WebApp.platform)">8 (800) 555-35-35</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        firstBlockHide=false;
+        goTopHide=true;
+        hblock = $('.mainBlock').height();
+
+        document.addEventListener("scroll", (event) => {
+            let hscroll = window.pageYOffset;
+
+            if (hscroll == 0){
+                goTopHide = true;
+                $('.safeZone').css('display','none');
+                $('.goTop').css('display','none');
+            }else if (hscroll>0 && goTopHide){
+                goTopHide = false;
+                $('.safeZone').css('display','block');
+                $('.goTop').css('display','flex');
+            }
+
+            if (hscroll > hblock && firstBlockHide == false){
+                $('.mainBlock__alpha').css('opacity', 1);
+                $('.goTop__bg').css('opacity',1);
+                firstBlockHide = true;
+            }else if (hscroll < hblock) {
+                firstBlockHide = false;
+                let opacity = hscroll/hblock;
+                $('.mainBlock__alpha').css('opacity',opacity);
+                $('.goTop__bg').css('opacity',opacity);
+            }
+        });
+
+        $(document).ready(function(){
+            $("a[href*='#']").on("click", function(e){
+                var anchor = $(this);
+                $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top
+                }, 777);
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+    <div class="catalog">
+    <a id="first"></a>
+    <div>
+        <div class="category__head">
+            <div class="category__head__infoBox">
+                <div></div>
+                <div>Первое блюдо</div>
+            </div>
+        </div>
+        <div class="category__list">
+            <div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_1.jpg">
+                        <div class="category__list__item__info__title">Борщ</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Говядина, сметана, чеснок, зелёный лук
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">330 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">480 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="101" item-name="Борщ" item-category="first" item-size="330" item-size-type="gr" item-price="480">
+                        <button class="category__list__item__addToOrder__btn">В заказ</button>
+                        <div style="display:none" class="d-flex m-0auto">
+                            <button class="changeOrderItem cart__minusItem">-</button>
+                            <div class="changeOrderItem cart__countItems"></div>
+                            <button class="changeOrderItem cart__addItem">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_2.jpg">
+                        <div class="category__list__item__info__title">Том Ям из морепродуктов</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Кокосовые сливки, креветки, кальмар, паста "Том Ям", лайм, вешенки, имбирь, рис
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">350 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">770 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="102" item-name="Том Ям из морепродуктов" item-category="first" item-size="350" item-size-type="gr" item-price="770"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_3.jpg">
+                        <div class="category__list__item__info__title">Суп-лапша с курицей</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Курица, овощи, перепелиное яйцо, лапша
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">390 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">480 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="103" item-name="Суп-лапша с курицей" item-category="first" item-size="390" item-size-type="gr" item-price="480"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_4.jpg">
+                        <div class="category__list__item__info__title">Суп-гуляш по-чешски</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Говядина, томаты, овощи, хлеб
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">350 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">760 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="104" item-name="Суп-гуляш по-чешски" item-category="first" item-size="350" item-size-type="gr" item-price="760"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_5.jpg">
+                        <div class="category__list__item__info__title">Уха</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Дорадо, судак, лосось, овощи
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">340 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">780 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="105" item-name="Уха" item-category="first" item-size="340" item-size-type="gr" item-price="780"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/1_6.jpg">
+                        <div class="category__list__item__info__title">Гороховый с копченостями</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Горох, рёбра BBQ, хрустящий бекон, пшеничный хлеб
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">360 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">670 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="106" item-name="Гороховый с копченостями" item-category="first" item-size="360" item-size-type="gr" item-price="670"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="second"></a>
+    <div class="pt-2">
+        <div class="category__head">
+            <div class="category__head__infoBox">
+                <div></div>
+                <div>Второе блюдо</div>
+            </div>
+        </div>
+        <div class="category__list">
+            <div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/2_1.jpg">
+                        <div class="category__list__item__info__title">Жареный картофель на сале с чесноком и луком</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Картофель, лук репчатый, чеснок, сало, чесночное масло
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">170 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">250 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="201" item-name="Жареный картофель на сале с чесноком и луком" item-category="second" item-size="170" item-size-type="gr" item-price="250"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/2_2.jpg">
+                        <div class="category__list__item__info__title">Картофельные дольки</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">120 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">220 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="202" item-name="Картофельные дольки" item-category="second" item-size="120" item-size-type="gr" item-price="220"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/2_3.jpg">
+                        <div class="category__list__item__info__title">Пельмени ручной лепки</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Отварные пельмени с мясом ручной лепки с ароматным бульоном
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">270 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">690 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="203" item-name="Отварные пельмени ручной лепки с бульоном" item-category="second" item-size="270" item-size-type="gr" item-price="690"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/2_5.jpg">
+                        <div class="category__list__item__info__title">Спагетти карбонара</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Спагетти, бекон, яйцо, пармезан, лук репчатый, черный перец
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">300 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">580 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="205" item-name="Спагетти карбонара" item-category="second" item-size="300" item-size-type="gr" item-price="580"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="salats"></a>
+    <div class="pt-2">
+        <div class="category__head">
+            <div class="category__head__infoBox">
+                <div></div>
+                <div>Салаты</div>
+            </div>
+        </div>
+        <div class="category__list">
+            <div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/3_1.jpg">
+                        <div class="category__list__item__info__title">Салат с морепродуктами</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Морской гребешок, кальмар, креветка, тортилья, мидии с медово-лимонным соусом
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">280 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">1080 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="301" item-name="Салат с морепродуктами" item-category="salats" item-size="280" item-size-type="gr" item-price="1080"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/3_2.jpg">
+                        <div class="category__list__item__info__title">Салат с копченым лососем и грейпфрутом</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Копченый лосось, грейпфрут, зеленый салат, авокадо, лимонный 
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">170 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">760 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="302" item-name="Салат с копченым лососем и грейпфрутом" item-category="salats" item-size="170" item-size-type="gr" item-price="760"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/3_3.jpg">
+                        <div class="category__list__item__info__title">Цезарь с креветками</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Салат "Романо", Креветки, Перепелиное яйцо, Сыр пармезан, Гренки, Соус "Цезарь"
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">180 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">820 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="303" item-name="Цезарь с креветками" item-category="salats" item-size="180" item-size-type="gr" item-price="820"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a id="deserts"></a>
+    <div class="pt-2">
+        <div class="category__head">
+            <div class="category__head__infoBox">
+                <div></div>
+                <div>Десерты</div>
+            </div>
+        </div>
+        <div class="category__list">
+            <div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/4_1.jpg">
+                        <div class="category__list__item__info__title">Кокосовый мусс с ромовым ананасом</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Кокосовый мусс, Ромовое компоте, Декуаз с кокосовой стружкой, Хрустящий белый шоколад, Спонж с маракуией
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">170 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">580 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="401" item-name="Кокосовый мусс с ромовым ананасом" item-category="deserts" item-size="170" item-size-type="gr" item-price="580"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/4_2.jpg">
+                        <div class="category__list__item__info__title">Сметанник</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Брауни, Соус «Сметанник», Фундук, Сахарный сироп
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">220 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">580 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="402" item-name="Сметанник" item-category="deserts" item-size="220" item-size-type="gr" item-price="580"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/4_3.jpg">
+                        <div class="category__list__item__info__title">Яблочно-грушевый пирог</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                            Слоеное тесто, Крем франжипан, Груши, яблоки, Глазурь белое вино
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">270 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">580 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="403" item-name="Яблочно-грушевый пирог" item-category="deserts" item-size="270" item-size-type="gr" item-price="580"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/4_6.jpg">
+                        <div class="category__list__item__info__title">Шоколадный фондан</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">120 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">580 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="406" item-name="Шоколадный фондан" item-category="deserts" item-size="120" item-size-type="gr" item-price="580"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/4_8.jpg">
+                        <div class="category__list__item__info__title">Варенье малиновое</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/gr.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">50 гр.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">190 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="408" item-name="Варенье малиновое" item-category="deserts" item-size="190" item-size-type="gr" item-price="190"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="drinks"></a>
+    <div class="pt-2">
+        <div class="category__head">
+            <div class="category__head__infoBox">
+                <div></div>
+                <div>Напитки</div>
+            </div>
+        </div>
+        <div class="category__list">
+            <div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/5_1.jpg">
+                        <div class="category__list__item__info__title">Лимонад Малина-Клубника</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/ml.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">500 мл.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">590 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="501" item-name="Лимонад Малина-Клубника" item-category="drinks" item-size="500" item-size-type="ml" item-price="590"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/5_2.jpg">
+                        <div class="category__list__item__info__title">Лимонад Маракуйя-Манго</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/ml.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">500 мл.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">590 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="502" item-name="Лимонад Маракуйя-Манго" item-category="drinks" item-size="500" item-size-type="ml" item-price="590"><button class="category__list__item__addToOrder__btn">В заказ</button><div style="display:none" class="d-flex m-0auto"><button class="changeOrderItem cart__minusItem">-</button><div class="changeOrderItem cart__countItems"></div><button class="changeOrderItem cart__addItem">+</button></div></div>
+                </div>
+                <div class="category__list__item">
+                    <div class="category__list__item__img">
+                        <img class="category__list__item__img__src" src="img/food/5_3.jpg">
+                        <div class="category__list__item__info__title">Морс</div>
+                    </div>
+                    <div class="category__list__item__info">
+                        <div class="category__list__item__info__description">
+                        </div>
+                        <div class="category__list__item__info__price">
+                            <div class="category__list__item__info__price__block">
+                                <div class="category__list__item__info__price__block__count">
+                                    <div><img class="category__list__item__info__price__block__count__ico" src="img/ml.svg"></div>
+                                    <div class="category__list__item__info__price__block__count__size">1000 мл.</div>
+                                </div>
+                                <div class="category__list__item__info__price__block__summ">800 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category__list__item__addToOrder cp" item-id="503" item-name="Морс" item-category="drinks" item-size="1000" item-size-type="ml" item-price="800">
+                        <button class="category__list__item__addToOrder__btn">В заказ</button>
+                        <div style="display:none" class="d-flex m-0auto">
+                            <button class="changeOrderItem cart__minusItem">-</button>
+                            <div class="changeOrderItem cart__countItems"></div>
+                            <button class="changeOrderItem cart__addItem">+</button>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var user = {
+            cart: []
+        }
+        var Cafe = {
+            contacts: {
+                'vk': 'https://vk.com/durov',
+                'instagram': 'https://instagram.com/durov',
+                'telegram': 'https://t.me/durov'
+            },
+            bot: 'http://t.me/BotFather',
+            isClosed: false,
+            stage: 0,
+            SDKVersion: 8.0,
+            debugMode: true,
+            locationAsked: false,
+
+            init: function (){
+                logs(`[init] > start..`);
+                logs(`[init] > Версия SDK - [${WebApp.version}]`);
+
+                if (WebApp.version < Cafe.SDKVersion) {
+                    WebApp.showAlert("У Вас старая версия Telegram, некоторые функции могут быть недоступны в демо-приложении. Пожалуйста, обновите приложение Telegram на своем устройстве.");
+                }
+
+                // ****************
+                // Прослушки
+                try {
+                    $('#order__name').on('click', Cafe.eNameClicked);
+                    $('#order__tel').on('click', Cafe.eTelClicked);
+                    $('#order__addr_uli').on('click', Cafe.getLocation);
+                    $('#order__addr_hou').on('click', Cafe.getLocation);
+                    logs(`[init] > Ивенты на кнопки назначены`);
+                } catch (error) {
+                    logs(`[init] > Не удалось назначить ивенты на кнопки: ${error}`);
+                }
+
+                try {
+                    WebApp.BackButton.onClick(Cafe.backBtnClicked);
+                    logs(`[init] > Функция на кнопку BackButton назначена`);
+                } catch (error) {
+                    logs(`[init] > Не удалось назначить функцию на BackButton - ${error}`);
+                }
+
+                try {
+                    WebApp.SecondaryButton.onClick(Cafe.secondaryBtnClicked);
+                    logs(`[init] > Функция на кнопку SecondaryButton назначена`);
+                } catch (error) {
+                    logs(`[init] > Не удалось назначить функцию на SecondaryButton - ${error}`);
+                }
+
+                try {
+                    WebApp.MainButton.onClick(Cafe.mainBtnClicked);
+                    logs(`[init] > Функция на кнопку MainButton назначена`);
+                } catch (error) {
+                    logs(`[init] > Не удалось назначить функцию на MainButton - ${error}`);
+                }
+                // Прослушки
+                // ****************
+
+                if (WebApp.version >= 7.7) {
+                    try {
+                        WebApp.disableVerticalSwipes();
+                        logs(`[init] > disableVerticalSwipes - Вкл`);
+                    } catch (error) {
+                        logs(`[init] > Не удалось выполнить функцию WebApp.disableVerticalSwipes() - ${error}`);
+                    }
+                }else{
+                    logs(`[init] > Не удалось выполнить функцию WebApp.disableVerticalSwipes() из-за старой версии SDK`);
+                }
+
+                if (WebApp.platform == 'android' || WebApp.platform == 'ios') {
+                    if (WebApp.version >= 8.0) {
+                        if (WebApp.isFullscreen == false) {
+                            WebApp.requestFullscreen();
+                            logs(`[init] > requestFullscreen - Вкл`);
+                        }else{
+                            logs(`[init] > requestFullscreen - уже была включена`);
+                        }
+                        if (WebApp.isOrientationLocked == false) {
+                            WebApp.lockOrientation();
+                            logs(`[init] > lockOrientation - Вкл`);
+                        }else{
+                            logs(`[init] > lockOrientation - уже была включена`);
+                        }
+                    }else{
+                        logs(`[init] > Не удалось выполнить функцию WebApp.requestFullscreen() из-за старой версии SDK`);
+                        logs(`[init] > Не удалось выполнить функцию WebApp.lockOrientation() из-за старой версии SDK`);
+                    }
+                }else{
+                    WebApp.setHeaderColor(appTheme.color3);
+                    logs(`[init] > Не пытались выполнить функцию WebApp.requestFullscreen() и WebApp.lockOrientation() т.к. WebApp.platform == ${WebApp.platform}`);
+                }
+    
+                user.cart['totalPrice'] = 0;
+                
+                try {
+                    WebApp.ready();
+                    logs(`[init] > ready`);
+                } catch (error) {
+                    logs(`[init] > Не удалось выполнить функцию WebApp.ready() - ${error}`);
+                }
+
+                try {
+                    WebApp.MainButton.hideProgress().hide();
+                    logs(`[init] > MainButton - Спрятали загрузку`);
+                } catch (error) {
+                    logs(`[init] > Не удалось выполнить функцию WebApp.MainButton.hideProgress() - ${error}`);
+                }
+
+                try {
+                    $("#order__tel").inputmask(mask_tel);
+                    logs(`[init] > Назначили маску на ПВ телефона`);
+                } catch (error) {
+                    logs(`[init] > Не удалось назначить маску на ПВ телефона - ${error}`);
+                }
+                
+                loaderloading(100);
+                loaderDone();
+
+                logs(`[init] > finish.`);
+            },
+            eNameClicked: function(e) {
+                logs(`input order__name - click`);
+                let message = {
+                    'title': 'Ваше имя', 
+                    'message': WebApp.initDataUnsafe.user.first_name, 
+                    'buttons': [
+                        { 
+                            'id': 'n',
+                            'type': 'destructive', 
+                            'text': 'Нет' 
+                        }, 
+                        { 
+                            'id': 'y',
+                            'type': 'default', 
+                            'text': 'Да' 
+                        }
+                    ] 
+                };
+                WebApp.showPopup(message, function(result){
+                    if (result == 'y') {
+                        logs(`input order__name - вставили данные: `+WebApp.initDataUnsafe.user.first_name);
+                        $('#order__name').val(WebApp.initDataUnsafe.user.first_name);
+                    }else{
+                        document.getElementById('order__name').focus();
+                    }
+                });
+            },
+            eTelClicked: function(e) {
+                logs(`input order__tel - click`);
+                WebApp.requestContact(function(e,result){
+                    if (e) {
+                        if (result.status == 'sent') {
+                            logs(`input order__tel - вставили данные: `+result.responseUnsafe.contact.phone_number.slice(1));
+                            $('#order__tel').val(result.responseUnsafe.contact.phone_number.slice(1));
+                        }else{
+                            document.getElementById('order__tel').focus();
+                        }
+                    }
+                });
+            },
+            changeStage: function (newStage) {
+                switch (newStage) {
+                    case 0:
+                        Cafe.vibro_ok();
+                        Cafe.stage = 0;
+                        if (WebApp.MainButton.isVisible) {
+                            WebApp.MainButton.hide();
+                            logs('[changeStage] > [0] > Главная кнопка - Выкл');
+                        }
+                        if (WebApp.SecondaryButton.isVisible) {
+                            WebApp.SecondaryButton.hide();
+                            logs('[changeStage] > [0] > Второстепенная кнопка - Выкл');
+                        }
+                        if (WebApp.BackButton.isVisible) {
+                            WebApp.BackButton.hide();
+                            logs('[changeStage] > [0] > Кнопка назад - Выкл');
+                        }
+                        if (WebApp.isClosingConfirmationEnabled) {
+                            WebApp.disableClosingConfirmation();
+                            logs('[changeStage] > [0] > Подтверждение закрытия приложения - Выкл');
+                        }
+                        $('.category__list__item__addToOrder').each(function() {
+                            $(this).find('.category__list__item__addToOrder__btn').show();
+                            $(this).find('.d-flex').hide();
+                        });
+                        user.cart = [];
+                        user.cart['totalPrice'] = 0;
+
+                        if ($('body').css('overflow') == 'hidden') {
+                            $('body').css('overflow','auto');
+                        }
+
+                        if ($('#order').css('display') != 'none') {
+                            $('#order').hide(300);
+                        }
+                    break;
+
+                    case 1:
+                        Cafe.vibro_ok();
+                        Cafe.stage = 1;
+
+                        WebApp.MainButton.setParams(
+                            {
+                                'text':'Заказ',
+                                'color': appTheme.color1,
+                                'text_color': appTheme.color3,
+                                'is_visible':true,
+                                'is_active':true
+                            }
+                        );
+                        logs('[changeStage] > [1] > Главная кнопка - [Заказ] - Вкл');
+
+                        if ($('body').css('overflow') == 'hidden') {
+                            $('body').css('overflow','auto');
+                            logs('[changeStage] > [1] > body - Scroll - Вкл');
+                        }
+
+                        if (WebApp.SecondaryButton.isVisible) {
+                            WebApp.SecondaryButton.hide();
+                            logs('[changeStage] > [1] > SecondaryButton - Выкл');
+                        }
+
+                        if ($('#order').css('display') != 'none') {
+                            $('#order').hide(300);
+                            logs('[changeStage] > [1] > order - Выкл');
+                        }
+                        
+                        if (WebApp.BackButton.isVisible){
+                            WebApp.BackButton.hide();
+                            logs('[changeStage] > [1] > BackButton - Выкл');
+                        }
+
+                        if (WebApp.isClosingConfirmationEnabled==false) {
+                            WebApp.enableClosingConfirmation();
+                            logs('[changeStage] > [1] > Подтверждение закрытия приложения - Вкл');
+                        }
+                    break;
+
+                    case 2:
+                        Cafe.stage = 2;
+                        Cafe.vibro_ok();
+                        
+                        if ($('body').css('overflow') != 'hidden') {
+                            $('body').css('overflow','hidden');
+                            logs('[changeStage] > [2] > body - Scroll - Выкл');
+                        }
+
+                        if (WebApp.SecondaryButton.isVisible == false) {
+                            WebApp.SecondaryButton.setText("Очистить");
+                            WebApp.SecondaryButton.textColor = WebApp.MainButton.color;
+                            WebApp.SecondaryButton.show();
+                            logs('[changeStage] > [2] > SecondaryButton - Вкл');
+                        }
+
+                        if (WebApp.MainButton.text != "Оформить") {
+                            WebApp.MainButton.setText("Оформить");
+                            logs('[changeStage] > [2] > MainButton - Переименована');
+                        }
+
+                        
+                        if ($('#wantOrder').css('display') != 'none') {
+                            $('#wantOrder').hide(300);
+                            logs('[changeStage] > [2] > Форма заказа - Выкл');
+                            setTimeout(function () {
+                                $('#order__main').show(300);
+                                logs('[changeStage] > [2] > Лист заказа - Вкл');
+                            },300);
+                        }else{
+                            let html='',count=1;
+                            for (let i = 0; i < user.cart.length; i++) {
+                                const el = user.cart[i];
+                                html+='<div class="d-flex" item-id="'+el.id+'"><div class="order__item__counter">#'+count+'</div><div class="m-auto">'+el.name+'</div><div class="m-auto ta-c">x'+el.count+'</div><div class="m-auto">'+formatedPrice((Number(el.price)*el.count))+' ₽</div></div>';
+                                $('#order__totalPrice').text(formatedPrice(user.cart.totalPrice));
+                                count++;
+                            }
+                            logs('[changeStage] > [2] > Лист заказа - Сгенерирован');
+                            $('#order__items').html(html);
+                            $('#order__main').show();
+                            logs('[changeStage] > [2] > Лист заказа - Вкл');
+
+                        }
+
+                        if ($('#order').css('display') == 'none') {
+                            $('#order').show(300);
+                            logs('[changeStage] > [2] > order - Вкл');
+                        }
+
+                        if (WebApp.BackButton.isVisible == false) {
+                            WebApp.BackButton.show();
+                            logs('[changeStage] > [2] > BackButton - Вкл');
+                        }
+
+                    break;
+
+                    case 3:
+                        Cafe.stage = 3;
+                        
+                        Cafe.vibro_ok();
+                        WebApp.SecondaryButton.hide();
+                        logs('[changeStage] > [3] > SecondaryButton - Выкл');
+                        WebApp.BackButton.show();
+                        logs('[changeStage] > [3] > BackButton - Вкл');
+                        $('#order__main').hide(300);
+                        logs('[changeStage] > [3] > Лист заказа - Выкл');
+                        setTimeout(function () {
+                            $('#wantOrder').show(300);
+                            logs('[changeStage] > [3] > Форма заказа - Вкл');
+                        },300);
+                        WebApp.MainButton.setText("Оформить заказ");
+                        logs('[changeStage] > [3] > MainButton - Переименована');
+                    break;
+
+                    case 4:
+                        Cafe.stage = 3;
+                        
+                        Cafe.vibro_ok();
+                        
+                        let error = false;
+
+                        if ($('#order__name').val() == '') {
+                            logs('[changeStage] > [4] > Имя не указано');
+                            WebApp.showAlert('Вы не указали свое имя');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else{
+                            user['name'] = $('#order__name').val();
+                        }
+
+                        if ($('#order__addr_obl').val() == '' && error == false) {
+                            logs('[changeStage] > [4] > Область доставки не указана');
+                            WebApp.showAlert('Вы не указали область доставки');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else{
+                            user['address'] = $('#order__addr_obl').val();
+                        }
+
+                        telRegex = /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/;
+                        if ($('#order__tel').val() == '' && error == false || $('#order__tel').val() == '+7(___)___-__-__' && error == false) {
+                            logs('[changeStage] > [4] > Номер телефона не указан');
+                            WebApp.showAlert('Вы не ввели номер телефона');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else if (telRegex.test($('#order__tel').val())) {
+                            user['tel'] = $('#order__tel').val();
+                        }else if (error == false){
+                            logs('[changeStage] > [4] > Номер телефона указан некорректно');
+                            WebApp.showAlert('Вы ввели некорректный номер телефона');
+                            Cafe.vibro_error();
+                            error = true;
+                        }
+
+                        if ($('#order__addr_cit').val() == '' && error == false) {
+                            logs('[changeStage] > [4] > Город доставки не указан');
+                            WebApp.showAlert('Вы не указали город доставки');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else{
+                            user['address'] += ', '+$('#order__addr_cit').val();
+                        }
+
+                        if ($('#order__addr_uli').val() == '' && error == false) {
+                            logs('[changeStage] > [4] > Улица доставки не указана');
+                            WebApp.showAlert('Вы не указали улицу доставки');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else{
+                            user['address'] += ', '+$('#order__addr_uli').val();
+                        }
+
+                        if ($('#order__addr_hou').val() == '' && error == false) {
+                            logs('[changeStage] > [4] > Дом доставки не указан');
+                            WebApp.showAlert('Вы не указали дом доставки');
+                            Cafe.vibro_error();
+                            error = true;
+                        }else{
+                            user['address'] += ', д. '+$('#order__addr_hou').val();
+                        }
+
+                        if ($('#order__addr_pod').val() != '' && error == false) {
+                            user['address'] += ', под. '+$('#order__addr_pod').val();
+                        }
+
+                        if ($('#order__addr_flo').val() != '' && error == false) {
+                            user['address'] += ', эт. '+$('#order__addr_flo').val();
+                        }
+
+                        if ($('#order__addr_kva').val() != '' && error == false) {
+                            user['address'] += ', кв. '+$('#order__addr_kva').val();
+                        }
+
+                        if ($('#order__comment').val() != '' && error == false) {
+                            user['comment'] = $('#order__comment').val();
+                        }
+
+                        if ($('input[name=mo]:checked').val() > 0 && $('input[name=mo]:checked').val() < 4 && error == false) {
+                            user['payMethod'] = $('input[name=mo]:checked').val();
+                        }else if (error == false){
+                            logs('[changeStage] > [4] > Метод оплаты не выбран');
+                            WebApp.showAlert('Выберите метод оплаты');
+                            Cafe.vibro_error();
+                            error = true
+                        }
+
+                        if (error == false) {
+                            WebApp.requestWriteAccess(function (result) {
+                                if (result === true) {
+                                    WebApp.MainButton.showProgress().disable();
+                                    // console.log('Пользователь разрешил писать ему сообщения');
+                                    user['totalPrice']=user['cart']['totalPrice'];
+                                    $.post('api/engine', JSON.stringify({user: user, data: WebApp.initData}), function (res) {
+                                        if (res == true) {
+                                            WebApp.openTelegramLink(Cafe.bot);
+                                            WebApp.close();
+                                        }else{
+                                            WebApp.showAlert("Что-то пошло не так...");
+                                            WebApp.MainButton.hideProgress().enable();
+                                        }
+                                    })
+                                }else{
+                                    // console.log('Пользователь НЕ разрешил писать ему сообщения');
+                                    logs('[changeStage] > [4] > Нет доступа для личных сообщений');
+                                    WebApp.showAlert('Для отправки счета и уведомлений о статусе заказа, разрешите Вам писать');
+                                }
+                            });
+                        }
+                    break;
+                }
+            },
+            getLocation: function() {
+                if (WebApp.version >= 8.0) {
+                    if (WebApp.LocationManager.isInited == false && Cafe.locationAsked == false) {
+                        WebApp.LocationManager.init(function () {
+                            if (WebApp.LocationManager.isAccessGranted && WebApp.LocationManager.isLocationAvailable){
+                                WebApp.LocationManager.getLocation(function (result) {
+                                    Cafe.locationAsked=true;
+                                    WebApp.MainButton.showProgress();
+                                    $.post('api/engine',JSON.stringify({
+                                        'data': WebApp.initData,
+                                        'action': 'getAddress',
+                                        'location': JSON.stringify(result)
+                                    }), function (e) {
+                                        e = JSON.parse(e);
+                                        her = e;
+                                        if (e.ok) {
+                                            WebApp.MainButton.hideProgress();
+                                            let msg = '';
+                                            if (e.address.street != '' && e.address.street != null && e.address.street != undefined) {
+                                                msg +=e.address.street;
+                                            }
+                                            if (msg != '' && e.address.house != '' && e.address.house != null && e.address.house != undefined) {
+                                                msg +=", "+e.address.house;
+                                            }
+                                            if (msg != '') {
+                                                let message = {
+                                                    'title': 'Ваше местоположение', 
+                                                    'message': msg, 
+                                                    'buttons': [
+                                                        { 
+                                                            'id': 'n',
+                                                            'type': 'destructive', 
+                                                            'text': 'Нет' 
+                                                        }, 
+                                                        { 
+                                                            'id': 'y',
+                                                            'type': 'default', 
+                                                            'text': 'Да' 
+                                                        }
+                                                    ] 
+                                                };
+                                                WebApp.showPopup(message, function(result){
+                                                    if (result == 'y') {
+                                                        if (e.address.street != '' || e.address.street != null || e.address.street != undefined) {
+                                                            logs(`input order__addr_uli - вставили данные: `+e.address.street);
+                                                            $('#order__addr_uli').val(e.address.street);
+                                                        }
+                                                        if (e.address.house != '' || e.address.house != null || e.address.house != undefined) {
+                                                            logs(`input order__addr_hou - вставили данные: `+e.address.house);
+                                                            $('#order__addr_hou').val(e.address.house);
+                                                        }
+                                                        $('#order__addr_pod').focus();
+                                                    }
+                                                });
+                                            }else{
+                                                logs(`[getLocation] > Не удалось определить улицу (${e.address.street}) и дом (${e.address.house})`);
+                                            }
+                                        }
+                                    })
+                                })
+                            }else if (WebApp.LocationManager.isAccessGranted==false && WebApp.LocationManager.isLocationAvailable){
+                                if (WebApp.LocationManager.isAccessRequested) {
+                                    let message = {
+                                        'title': 'Не видим Вас', 
+                                        'message': "Для автоматического нахождения включите геолокацию в нашем профиле", 
+                                        'buttons': [
+                                            { 
+                                                'id': 'n',
+                                                'type': 'destructive', 
+                                                'text': 'Не хочу' 
+                                            }, 
+                                            { 
+                                                'id': 'y',
+                                                'type': 'default', 
+                                                'text': 'Хорошо' 
+                                            }
+                                        ] 
+                                    };
+                                    WebApp.showPopup(message, function(result){
+                                        if (result == 'y') {
+                                            WebApp.LocationManager.openSettings();
+                                        }
+                                    });
+                                }
+                            }else if (WebApp.LocationManager.isLocationAvailable == false) {
+                                logs(`[changeStage] > Не удалось включить LocationManager. Локация не поддерживается устройством`);
+                            }
+                        })
+                    }else if (WebApp.LocationManager.isInited == true && Cafe.locationAsked == false){
+                        if (WebApp.LocationManager.isAccessGranted && WebApp.LocationManager.isLocationAvailable){
+                                WebApp.LocationManager.getLocation(function (result) {
+                                    Cafe.locationAsked=true;
+                                    WebApp.MainButton.showProgress();
+                                    $.post('api/engine',JSON.stringify({
+                                        'data': WebApp.initData,
+                                        'action': 'getAddress',
+                                        'location': JSON.stringify(result)
+                                    }), function (e) {
+                                        e = JSON.parse(e);
+                                        her = e;
+                                        if (e.ok) {
+                                            WebApp.MainButton.hideProgress();
+                                            let message = {
+                                                'title': 'Ваше местоположение', 
+                                                'message': e.message, 
+                                                'buttons': [
+                                                    { 
+                                                        'id': 'n',
+                                                        'type': 'destructive', 
+                                                        'text': 'Нет' 
+                                                    }, 
+                                                    { 
+                                                        'id': 'y',
+                                                        'type': 'default', 
+                                                        'text': 'Да' 
+                                                    }
+                                                ] 
+                                            };
+                                            WebApp.showPopup(message);
+                                        }
+                                    })
+                                })
+                            }else if (WebApp.LocationManager.isAccessGranted==false && WebApp.LocationManager.isLocationAvailable){
+                                if (WebApp.LocationManager.isAccessRequested) {
+                                    let message = {
+                                        'title': 'Не видим Вас', 
+                                        'message': "Для автоматического нахождения включите геолокацию в нашем профиле", 
+                                        'buttons': [
+                                            { 
+                                                'id': 'n',
+                                                'type': 'destructive', 
+                                                'text': 'Не хочу' 
+                                            }, 
+                                            { 
+                                                'id': 'y',
+                                                'type': 'default', 
+                                                'text': 'Хорошо' 
+                                            }
+                                        ] 
+                                    };
+                                    WebApp.showPopup(message, function(result){
+                                        if (result == 'y') {
+                                            WebApp.LocationManager.openSettings();
+                                        }
+                                    });
+                                }
+                            }else if (WebApp.LocationManager.isLocationAvailable == false) {
+                                logs(`Не удалось включить LocationManager. Локация не поддерживается устройством`);
+                            }
+                    }
+                    
+                }else{
+                    if ((WebApp.version >= 8.0) == false) {
+                        logs(`Не удалось включить LocationManager из-за старой версии SDK`);
+                    }
+                }
+            },
+            checkCountItemsInCart: function() {
+                if (user.cart.length>0) {
+                    logs("[checkCountItemsInCart] > changeStage(1)");
+                    Cafe.changeStage(1);
+                }else{
+                    logs("[checkCountItemsInCart] > changeStage(0)");
+                    Cafe.changeStage(0);
+                }
+            },
+            clearCart: function(){
+                logs("[clearCart] > changeStage(0)");
+                Cafe.changeStage(0);
+            },
+            backBtnClicked: function(){
+                if (WebApp.MainButton.text == 'Оформить заказ') {
+                    logs("[backBtnClicked] > changeStage(2)");
+                    Cafe.changeStage(2);
+                }else if (WebApp.MainButton.text == 'Оформить') {
+                    logs("[backBtnClicked] > changeStage(1)");
+                    Cafe.changeStage(1);
+                }
+            },
+            secondaryBtnClicked: function(){
+                if (Cafe.stage == 2) {
+                    Cafe.clearCart();
+                }
+            },
+            mainBtnClicked: function(){
+                if (Cafe.stage == 1) {
+                    logs("[mainBtnClicked] > changeStage(2)");
+                    Cafe.changeStage(2);
+                }else if (Cafe.stage == 2) {
+                    logs("[mainBtnClicked] > changeStage(3)");
+                    Cafe.changeStage(3);
+                }else if (Cafe.stage == 3) {
+                    logs("[mainBtnClicked] > changeStage(4)");
+                    Cafe.changeStage(4);
+                }
+            },
+            vibro_ok: function() {
+                WebApp.HapticFeedback.notificationOccurred('success');
+            },
+            vibro_error: function() {
+                WebApp.HapticFeedback.notificationOccurred('error');
+            }
+        }
+        
+        $('.cart__minusItem').on('click', function () {
+            if (user.cart.length > 0) {
+                user.cart.forEach((el, i) => {
+                    if (el.id == $(this).parent().parent().attr('item-id')) {
+                        if (el.count > 1) {
+                            el.count--;
+                            logs(`Из корзины убрали 1шт. позиции - [${el.name}]`);
+                            Cafe.vibro_ok();
+                            $(this).parent().children('.cart__countItems').text(el.count);
+                        }else if (el.count == 1) {
+                            user.cart.splice(i, 1);
+                            logs(`Из корзины убрана позиция - [${el.name}]`);
+                            Cafe.vibro_ok();
+                            $(this).parent().children('.cart__countItems').text('');
+                            $(this).parent().parent().find('.d-flex').hide();
+                            $(this).parent().parent().find('.category__list__item__addToOrder__btn').show();
+                        }
+                        user.cart.totalPrice-=Number($(this).parent().parent().attr('item-price'));
+                    }
+                });
+            }
+            Cafe.checkCountItemsInCart();
+        });
+
+        $('.cart__addItem').on('click', function () {
+            let finded = false;
+
+            if (user.cart.length > 0) {
+                user.cart.forEach(el => {
+                    if (el.id == $(this).parent().parent().attr('item-id')) {
+                        el.count++;
+                        logs(`В корзину добавили 1шт. позиции - [${el.name}]`);
+                        Cafe.vibro_ok();
+                        user.cart.totalPrice+=Number($(this).parent().parent().attr('item-price'));
+                        $(this).parent().children('.cart__countItems').text(el.count);
+                        finded = true;
+                    }
+                });
+            }
+
+            if (finded == false && user.cart.length<15) {
+
+                let arr = {};
+                arr['id'] = $(this).parent().parent().attr('item-id');
+                arr['name'] = $(this).parent().parent().attr('item-name');
+                arr['category'] = $(this).parent().parent().attr('item-category');
+                arr['size'] = $(this).parent().parent().attr('item-size');
+                arr['size-type'] = $(this).parent().parent().attr('item-size-type');
+                arr['price'] = $(this).parent().parent().attr('item-price');
+                arr['count'] = 1;
+
+                $(this).parent().parent().find('.category__list__item__addToOrder__btn').hide();
+                $(this).parent().parent().find('.cart__countItems').text(arr['count']);
+                $(this).parent().parent().find('.d-flex').show();
+
+                logs(`В корзину добавили позицию - [${arr.name}]`);
+                Cafe.vibro_ok();
+
+                user.cart.push(arr);
+                user.cart.totalPrice+=Number($(this).parent().parent().attr('item-price'));
+            }else if (finded == false && user.cart.length>=15) {
+                WebApp.showAlert('В заказ можно положить не более 15 позиций');
+                logs(`Достигнут лимит корзины - 15 шт.`);
+                Cafe.vibro_error();
+            }
+            Cafe.checkCountItemsInCart();
+        });
+
+        $('.category__list__item__addToOrder__btn').on('click', function () {
+            let finded = false;
+
+            if (user.cart.length > 0) {
+                user.cart.forEach(el => {
+                    if (el.id == $(this).parent().attr('item-id')) {
+                        el.count++;
+                        Cafe.vibro_ok();
+                        logs(`В корзину добавили 1шт. позиции - [${el.name}]`);
+                        user.cart.totalPrice+=Number($(this).parent().attr('item-price'));
+                        $(this).parent().children('.cart__countItems').text(el.count);
+                        finded = true;
+                    }
+                });
+            }
+
+            if (finded == false && user.cart.length<15) {
+                let arr = {};
+                arr['id'] = $(this).parent().attr('item-id');
+                arr['name'] = $(this).parent().attr('item-name');
+                arr['category'] = $(this).parent().attr('item-category');
+                arr['size'] = $(this).parent().attr('item-size');
+                arr['size-type'] = $(this).parent().attr('item-size-type');
+                arr['price'] = $(this).parent().attr('item-price');
+                arr['count'] = 1;
+
+                $(this).parent().find('.category__list__item__addToOrder__btn').hide();
+                $(this).parent().find('.cart__countItems').text(arr['count']);
+                $(this).parent().find('.d-flex').show();
+
+                logs(`В корзину добавили позицию - [${arr.name}]`);
+                Cafe.vibro_ok();
+                user.cart.push(arr);
+                user.cart.totalPrice+=Number($(this).parent().attr('item-price'));
+            }else if (finded == false && user.cart.length>=15) {
+                WebApp.showAlert('В заказ можно положить не более 15 позиций');
+                logs(`Достигнут лимит корзины - 15 шт.`);
+                Cafe.vibro_error();
+            }
+            Cafe.checkCountItemsInCart();
+        });
+
+        // loader
+        function loaderloading(progress) {
+            $("#loader__progress").css('width', progress + '%');
+            $("#loader__progress_stat").text(progress + '%');
+
+            let opacity = (100 - progress) * 0.01
+            $("#loader__logo-bw").css('opacity', opacity);
+        }
+        function loaderDone() {
+            ovrl = $('#loader');
+            ovrl.css('opacity', 0);
+            WebApp.MainButton.hide().hideProgress();
+            setTimeout(function () {
+                ovrl.css('display', 'none');
+            }, 1200);
+        }
+
+        var mask_tel = {"mask":"+7(999)999-99-99"};
+        loaderloading(55);
+
+
+        window.onload = function() { 
+            Cafe.init();
+        };
+
+
+        function formatedPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+
+        $('.paymentMethod').on('click', function () {
+            $('.paymentMethod').removeClass('pm_selected');
+            $(this).addClass('pm_selected');
+
+            if ($(this).attr('data-paymethod') == 4) {
+                Cafe.vibro_error();
+                WebApp.showAlert("СБП подключить можно, но он не предоставляет услуги ТЕСТОВЫХ платежей 😔\n\nВыбери другой вариант оплаты.", function () {
+                    $('.paymentMethod').removeClass('pm_selected');
+                });
+            }
+        })
+        
+        var timestamp;
+        function logs(msg) {
+            if (Cafe.debugMode) {
+                timestamp = new Date().toLocaleString();
+                console.log(`%c[${timestamp}] - [APP] > `+msg, "color: blue; font-size: 1rem; font-weight: bold");
+            }
+        }
+    </script>
+</body>
+</html>
