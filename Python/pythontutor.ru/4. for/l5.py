@@ -1,0 +1,7 @@
+print(1, 2, 3)
+print(4, 5, 6)
+print(1, 2, 3, sep=', ', end='. ')
+print(4, 5, 6, sep=', ', end='. ')
+print()
+print(1, 2, 3, sep='', end=' -- ')
+print(4, 5, 6, sep=' * ', end='.')
