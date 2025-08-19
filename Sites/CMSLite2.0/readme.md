@@ -131,7 +131,7 @@ PHP + HTML + CSS + JS
 * `id` = `{int}`
 
 
-`POST api/engine.php?resource=deals&id={int}`
+`PUT api/engine.php?resource=deals&id={int}`
 
 Ожидаемый ответ:
 ```
@@ -146,7 +146,7 @@ PHP + HTML + CSS + JS
 * `id` = `{int}`
 
 
-`POST api/engine.php?resource=deals&id={int}`
+`DELETE api/engine.php?resource=deals&id={int}`
 
 Ожидаемый ответ:
 ```
@@ -254,7 +254,7 @@ PHP + HTML + CSS + JS
 * `id` = `{int}`
 
 
-`POST api/engine.php?resource=contacts&id={int}`
+`PUT api/engine.php?resource=contacts&id={int}`
 
 Ожидаемый ответ:
 `
@@ -269,7 +269,7 @@ PHP + HTML + CSS + JS
 * `id` = `{int}`
 
 
-`POST api/engine.php?resource=contacts&id={int}`
+`DELETE api/engine.php?resource=contacts&id={int}`
 
 Ожидаемый ответ:
 ```
