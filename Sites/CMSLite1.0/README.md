@@ -1,4 +1,4 @@
-# CMS-Lite
+# "CMS-Lite"
 Front
 
 ## Стек
