@@ -1,6 +1,17 @@
 # "CMS-lite"
 PHP + HTML + CSS + JS
 
+
+## Скриншоты
+<img src="img/0.jpg">
+<img src="img/1.jpg">
+<img src="img/2.jpg">
+<img src="img/3.jpg">
+<img src="img/4.jpg">
+<img src="img/5.jpg">
+<img src="img/6.jpg">
+<img src="img/7.jpg">
+
 # API
 
 ## Menu
