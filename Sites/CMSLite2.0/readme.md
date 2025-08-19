@@ -7,7 +7,7 @@ PHP + HTML + CSS + JS
 `GET api/engine.php`
 
 Ожидаемый ответ:
-`
+```
 {
     "ok": true,
     "menu": [
@@ -21,7 +21,7 @@ PHP + HTML + CSS + JS
         }
     ]
 }
-`
+```
 
 ## Deals
 Сделки.
