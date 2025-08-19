@@ -2,7 +2,7 @@
 Front
 
 ## Стек
-HTML + CSS + JS + PHP + SQL + API
+HTML + CSS + JS
 
 ## Скриншоты
 <img src="img/1.jpg">
