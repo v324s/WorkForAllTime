@@ -38,7 +38,7 @@ PHP + HTML + CSS + JS
 `GET api/engine.php?resource=deals`
 
 Ожидаемый ответ:
-`
+```
 200
 {
     "ok": true,
@@ -68,7 +68,7 @@ PHP + HTML + CSS + JS
         }
     ]
 }
-`
+```
 #### ==1
 
 Обязательные GET-параметры:
@@ -79,7 +79,7 @@ PHP + HTML + CSS + JS
 `GET api/engine.php?resource=deals&id={int}`
 
 Ожидаемый ответ:
-`
+```
 200
 {
     "ok": true,
@@ -96,7 +96,7 @@ PHP + HTML + CSS + JS
         ]
     }
 }
-`
+```
 
 ### POST
 Создает новую сделку.
@@ -108,10 +108,10 @@ PHP + HTML + CSS + JS
 `POST api/engine.php?resource=deals`
 
 Ожидаемый ответ:
-`
+```
 201
 {"ok":true}
-`
+```
 
 ### PUT
 Редактирует существующую сделку.
@@ -124,10 +124,10 @@ PHP + HTML + CSS + JS
 `POST api/engine.php?resource=deals&id={int}`
 
 Ожидаемый ответ:
-`
+```
 200
 {"ok":true}
-`
+```
 ### DELETE
 Удаляет существующую сделку.
 
@@ -139,9 +139,9 @@ PHP + HTML + CSS + JS
 `POST api/engine.php?resource=deals&id={int}`
 
 Ожидаемый ответ:
-`
+```
 204
-`
+```
 
 ## Contacts
 Контакты.
@@ -158,7 +158,7 @@ PHP + HTML + CSS + JS
 `GET api/engine.php?resource=contacts`
 
 Ожидаемый ответ:
-`
+```
 200
 {
     "ok": true,
@@ -188,7 +188,7 @@ PHP + HTML + CSS + JS
         }
     ]
 }
-`
+```
 #### ==1
 
 Обязательные GET-параметры:
@@ -199,7 +199,7 @@ PHP + HTML + CSS + JS
 `GET api/engine.php?resource=contacts&id={int}`
 
 Ожидаемый ответ:
-`
+```
 200
 {
     "ok": true,
@@ -219,7 +219,7 @@ PHP + HTML + CSS + JS
         ]
     }
 }
-`
+```
 
 ### POST
 Создает новую сделку.
@@ -231,10 +231,10 @@ PHP + HTML + CSS + JS
 `POST api/engine.php?resource=contacts`
 
 Ожидаемый ответ:
-`
+```
 201
 {"ok":true}
-`
+```
 
 ### PUT
 Редактирует существующую сделку.
@@ -262,6 +262,6 @@ PHP + HTML + CSS + JS
 `POST api/engine.php?resource=contacts&id={int}`
 
 Ожидаемый ответ:
-`
+```
 204
-`
+```
