@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "first_name": "Василий",
+        "last_name": "Иванов",
+        "deals": []
+    },
+    {
+        "id": 2,
+        "first_name": "Иван",
+        "last_name": "Петров",
+        "deals": [
+            3,
+            2
+        ]
+    },
+    {
+        "id": 3,
+        "first_name": "Наталья",
+        "last_name": "Сидорова",
+        "deals": [
+            3
+        ]
+    }
+]

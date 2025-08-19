@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHPDEV</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        thead {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        thead td {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        .tbody__topic, .tbody__subtopic {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .tbody__topic:hover, .tbody__subtopic:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .selected {
+            background-color: #dbb434 !important;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .selected::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        #tbody__text {
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <td>Тема</td>
+                    <td>Подтема</td>
+                    <td>Содержание</td>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </section>
+    <script>
+        const content = [
+            {
+                'topic_name': 'Тема 1',
+                'subtopic': [
+                    {
+                        'subtopic_name': 'Подтема 1.1',
+                        'text': 'Некий текст, привязанный к Подтеме 1.1'
+                    },
+                    {
+                        'subtopic_name': 'Подтема 1.2',
+                        'text': 'Некий текст, привязанный к Подтеме 1.2'
+                    },
+                    {
+                        'subtopic_name': 'Подтема 1.3',
+                        'text': 'Некий текст, привязанный к Подтеме 1.3'
+                    }
+                ]
+            },
+            {
+                'topic_name': 'Тема 2',
+                'subtopic': [
+                    {
+                        'subtopic_name': 'Подтема 2.1',
+                        'text': 'Некий текст, привязанный к Подтеме 2.1'
+                    },
+                    {
+                        'subtopic_name': 'Подтема 2.2',
+                        'text': 'Некий текст, привязанный к Подтеме 2.2'
+                    },
+                    {
+                        'subtopic_name': 'Подтема 2.3',
+                        'text': 'Некий текст, привязанный к Подтеме 2.3'
+                    }
+                ]
+            }
+        ];
+
+        const base = {
+            startTopic: 1,
+            startSubtopic: 1,
+            selectedTopic: 0,
+            selectedSubtopic: 0,
+            
+            init(){
+                this.actionListener_selectTopic = this.actionListener_selectTopic.bind(this);
+                this.actionListener_selectSubtopic = this.actionListener_selectSubtopic.bind(this);
+
+                this.addListeners();
+                this.showContent();
+            },
+            addListeners(){
+                document.removeEventListener('click', this.actionListener_selectTopic)
+                document.removeEventListener('click', this.actionListener_selectSubtopic)
+                document.addEventListener('click', this.actionListener_selectTopic)
+                document.addEventListener('click', this.actionListener_selectSubtopic)
+            },
+            actionListener_selectSubtopic(e){
+                let el = e.target.closest(".tbody__subtopic");
+                if (el) {
+                    this.selectSubtopicMethod(el);
+                }
+            },
+            actionListener_selectTopic(e){
+                let el = e.target.closest(".tbody__topic");
+                if (el) {
+                    this.selectTopicMethod(el);
+                }
+            },
+            selectSubtopicMethod(el){
+                document.querySelectorAll('.tbody__subtopic').forEach(element => {
+                    element.classList.remove('selected');
+                });
+                el.classList.add('selected');
+                base.selectedSubtopic = +el.dataset.subtopic;
+
+                textElement = document.getElementById('tbody__text');
+                if (textElement) {
+                    textElement.textContent = content[this.selectedTopic].subtopic[this.selectedSubtopic].text;
+                }
+            },
+            selectTopicMethod(el){
+                document.querySelectorAll('.tbody__topic, .tbody__subtopic').forEach(element => {
+                    element.classList.remove('selected');
+                });
+                el.classList.add('selected');
+                document.getElementsByClassName('tbody__subtopic')[0].classList.add('selected');
+                base.selectedTopic = +el.dataset.topic;
+
+                for (let i = 0; i < content[base.selectedTopic].subtopic.length; i++) {
+                    if (document.getElementById(`tr_${i}`) != null) {
+                        document.getElementById(`tr_${i}`).children[1].innerText = content[base.selectedTopic].subtopic[i].subtopic_name;
+                    }
+                }
+
+                document.getElementById('tbody__text').innerText = content[base.selectedTopic].subtopic[0].text;
+            },
+            showContent(){
+                tbody = document.getElementById('tbody');
+                if (!tbody) return;
+                tbody.innerHTML = '';
+
+                for (let i = 0; i < content.length; i++) {
+                    let isSelected = this.startTopic === i+1
+                    let row = document.createElement('tr');
+                    row.id = `tr_${i}`;
+
+                    let topicCell = document.createElement('td');
+                    topicCell.className = `tbody__topic ${isSelected ? 'selected' : ''}`
+                    topicCell.dataset.topic = i;
+                    topicCell.textContent = content[i].topic_name;
+
+                    row.appendChild(topicCell);
+                    tbody.appendChild(row);
+                }
+
+                startIndex = this.startTopic - 1;
+                subtopics = content[startIndex].subtopic;
+                for (let i = 0; i < subtopics.length; i++) {
+                    let isSelected = this.startSubtopic === i+1
+                    let row = document.getElementById(`tr_${i}`);
+            
+                    if (!row) {
+                        row = document.createElement('tr');
+                        row.id = `tr_${i}`;
+                        row.innerHTML = '<td></td>';
+                        tbody.appendChild(row);
+                    }
+
+                    let subtopicCell = document.createElement('td');
+                    subtopicCell.className = `tbody__subtopic ${isSelected ? 'selected' : ''}`;
+                    subtopicCell.dataset.subtopic = i;
+                    subtopicCell.textContent = subtopics[i].subtopic_name;
+                    
+                    row.appendChild(subtopicCell);
+                }
+
+                let textCell = document.createElement('td');
+                textCell.id = 'tbody__text';
+                textCell.rowSpan = content.length > subtopics.length ? content.length : subtopics.length;
+                textCell.textContent = subtopics[this.startSubtopic - 1].text;
+                
+                let firstRow = document.getElementById('tr_0');
+                if (firstRow) {
+                    firstRow.appendChild(textCell);
+                }
+            }
+        }
+
+        window.onload = base.init();
+    </script>
+</body>
+</html>
